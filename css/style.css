@@ -212,9 +212,13 @@ td { vertical-align: top; }
    ========================================================================== */
 body { background: #FFFAD5; color:#BD4932; font-family: 'Droid Sans', sans-serif; }
 
-header { height: 100px; text-align: center; background: #105B63; -moz-box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; -webkit-box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; }
+header{ height: 100px; text-align: center; background: #105B63; -moz-box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; -webkit-box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; box-shadow: inset 0 1px 5px 0 #000, 0 1px 5px 0 #000; }
+div#main { height: 600px; margin-top: 10px; }
+footer { height: 100px; background:#DB9E36; color: #000; -moz-box-shadow: 0 -1px 5px 0 #000; -webkit-box-shadow: 0 -1px 5px 0 #000; box-shadow: 0 -1px 5px 0 #000; }
+footer div { padding: 10px inherit;}
 header span.header-title { font-size:4em; }
-header span.header-subtitle { font-size:2em; }
+header div.header-social { font-size:2em; }
+header div.header-social img { width:32px; height:32px; vertical-align: top; }
 
 
 
