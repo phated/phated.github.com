@@ -469,7 +469,7 @@ SlideManager.prototype.parseHistory = function() {
 };
 
 SlideManager.prototype.setHistory = function(index) {
-  var path = 'slide' + (index + 1);
+  var path = '/slide' + (index + 1);
   window.history.pushState({}, null, path);
 };
 
