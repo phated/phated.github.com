@@ -485,32 +485,37 @@ public class SwingExample {
 
 <!--
  *
- * BINARY DATA: Old hack
+ * Basic REST Web API Example - RESTful Sammich
  *
 -->
 <div class="slide centercontents">
-  <header>Binary data on the web <span style="text-decoration: line-through;">is</span> <em>was</em> painful!</header>
+  <header>Show me a RESTful Sammich!</header>
   <section>
-    <pre style="font-size: 70%">
-var xhr = new XMLHttpRequest();
-xhr.open('GET', '/path/to/image.png', true);
-
-// Trick to pass bytes through unprocessed.
-<b>xhr.overrideMimeType('text/plain; charset=x-user-defined');</b>
-
-xhr.onreadystatechange = function(e) {
-  if (this.readyState == 4 &amp;&amp; this.status == 200) {
-    var binStr = this.<b>responseText</b>;
-    for (var i = 0, len = binStr.length; i &lt; len; ++i) {
-      var c = binStr.charCodeAt(i);
-      //String.fromCharCode(c &amp; 0xff)
-      var byte = c &amp; 0xff;  // byte at offset i
-    }
-  }
-};
-
-xhr.send();
-</pre>
+    <table border="1">
+      <tbody>
+      	<tr>
+          <th>Resource</th>
+          <th>GET</th>
+          <th>PUT</th>
+          <th>POST</th>
+          <th>DELETE</th>
+        </tr>
+        <tr>
+          <th>Collection URI, such as <code>http://example.com/resources/</code></th>
+          <td><b>List</b> the URIs and perhaps other details of the collection's members.</td>
+          <td><b>Replace</b> the entire collection with another collection.</td>
+          <td><b>Create</b> a new entry in the collection. The new entry's URL is assigned automatically and is usually returned by the operation.</td>
+          <td><b>Delete</b> the entire collection.</td>
+        </tr>
+        <tr>
+          <th>Element URI, such as <code>http://example.com/resources/item17</code></th>
+          <td><b>Retrieve</b> a representation of the addressed member of the collection, expressed in an appropriate Internet media type.</td>
+          <td><b>Replace</b> the addressed member of the collection, or if it doesn't exist, <b>create</b> it.</td>
+          <td>Treat the addressed member as a collection in its own right and <b>create</b> a new entry in it.</td>
+          <td><b>Delete</b> the addressed member of the collection.</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </div>
 
