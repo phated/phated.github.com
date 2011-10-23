@@ -501,18 +501,18 @@ public class SwingExample {
           <th>DELETE</th>
         </tr>
         <tr>
-          <th>Collection URI, such as <code>http://example.com/resources/</code></th>
-          <td><b>List</b> the URIs and perhaps other details of the collection's members.</td>
-          <td><b>Replace</b> the entire collection with another collection.</td>
-          <td><b>Create</b> a new entry in the collection. The new entry's URL is assigned automatically and is usually returned by the operation.</td>
-          <td><b>Delete</b> the entire collection.</td>
+          <th>Collection URI, such as <code>http://example.com/sammiches/</code></th>
+          <td><b>List</b> all Sammiches.</td>
+          <td><b>Replace</b> all Sammiches with new Sammiches.</td>
+          <td><b>Create</b> a new Sammich.</td>
+          <td><b>Delete</b> all Sammiches.</td>
         </tr>
         <tr>
-          <th>Element URI, such as <code>http://example.com/resources/item17</code></th>
-          <td><b>Retrieve</b> a representation of the addressed member of the collection, expressed in an appropriate Internet media type.</td>
-          <td><b>Replace</b> the addressed member of the collection, or if it doesn't exist, <b>create</b> it.</td>
-          <td>Treat the addressed member as a collection in its own right and <b>create</b> a new entry in it.</td>
-          <td><b>Delete</b> the addressed member of the collection.</td>
+          <th>Element URI, such as <code>http://example.com/sammich/turkey</code></th>
+          <td><b>Show</b> a Turkey Sammich.</td>
+          <td><b>Update</b> a Turkey Sammich (if exists), or <b>create</b> it (if not exists).</td>
+          <td>Treat as a collection and <b>create</b> a new Sammich in it.</td>
+          <td><b>Delete</b> a Turkey Sammich.</td>
         </tr>
       </tbody>
     </table>
