@@ -519,6 +519,41 @@ public class SwingExample {
   </section>
 </div>
 
+<!--
+ *
+ * A few changes to RESTful Sammich
+ *
+-->
+<div class="slide centercontents">
+  <header>A better RESTful Sammich!</header>
+  <section>
+    <table class="wikitable" border="1">
+      <tbody>
+      	<tr>
+          <th>Resource</th>
+          <th>GET</th>
+          <th>PUT</th>
+          <th>POST</th>
+          <th>DELETE</th>
+        </tr>
+        <tr>
+          <th>Collection URI, such as <code>http://example.com/sammiches/</code></th>
+          <td><b>List</b> all Sammiches.</td>
+          <td><span style="text-decoration: line-through;"><b>Replace</b> all Sammiches with new Sammiches.</span> Bulk <b>update</b> all Sammiches</td>
+          <td><b>Create</b> a new Sammich.</td>
+          <td><b>Delete</b> all Sammiches.</td>
+        </tr>
+        <tr>
+          <th>Element URI, such as <code>http://example.com/sammiches/turkey</code></th>
+          <td><b>Show</b> a Turkey Sammich.</td>
+          <td><b>Update</b> a Turkey Sammich (if exists), or <span style="text-decoration: line-through;"><b>create</b> it</span> <b>Error</b> (if not exists).</td>
+          <td><span style="text-decoration: line-through;">Treat as a collection and <b>create</b> a new Sammich in it.</span> <b>Error</b></td>
+          <td><b>Delete</b> a Turkey Sammich.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
 
 <!--
  *
