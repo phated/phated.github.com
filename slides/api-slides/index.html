@@ -637,7 +637,7 @@ public class SwingExample {
          // Get userprefs
          var prefs = new gadgets.Prefs();
          
-         $('#content').html(prefs.getString('username'));
+         $('#content').html('Hello, " + prefs.getString('username') + '&lt;br&gt; Would you like a Sammich?');
        &lt;/script&gt;
      ]]&gt;
   &lt;/Content&gt;
