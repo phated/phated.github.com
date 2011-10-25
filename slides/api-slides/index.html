@@ -614,6 +614,37 @@ public class SwingExample {
   </section>
 </div>
 
+<!--
+ *
+ * Google Gadget: User Preferences
+ *
+-->
+<div class="slide centercontents">
+  <header><span class="theme1">Google Gadget</span> User Preferences</header>
+  <section>
+    <pre style="font-size:19px">
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Module&gt;
+  &lt;ModulePrefs title="User Preferences for __UP_username__" height="400" /&gt;
+  &lt;UserPref name="username" display_name="Name" required="true"/&gt;
+  &lt;Content type="html"&gt;
+     &lt;![CDATA[ 
+       <div id="content"></div>
+       <script type="text/javascript" src="js/jquery.js" />
+       <script type="text/javascript">
+         // Get userprefs
+         var prefs = new gadgets.Prefs();
+         
+         $('#content').html(prefs.getString('username'));
+       </script>
+     ]]&gt;
+  &lt;/Content&gt;
+&lt;/Module&gt;
+</pre>
+<a href="http://www.google.com/ig">Gadget Demo!</a>
+  </section>
+</div>
+
 
 <!--
  *
