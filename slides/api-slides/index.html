@@ -593,33 +593,22 @@ public class SwingExample {
 
 <!--
  *
- * BINARY DATA: New Hotness
+ * Google Gadget: Hello Sammiches
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme1">Import</span> <span class="theme5">Publish</span> Fetch binary file: new hotness</header>
-  <aside class="note">
-     <section>
-       BlobBuilder is prefixed in Chrome 12+ as <code>window.WebKitBlobBuilder()</code>.
-     </section>
-   </aside>
+  <header><span class="theme1">Google Gadget</span> Hello Sammiches!</header>
   <section>
     <pre style="font-size:19px">
-var xhr = new XMLHttpRequest();
-xhr.open('GET', '/path/to/image.png', true);
-
-<b>xhr.responseType = 'arraybuffer';</b>
-
-<b>xhr.onload</b> = function(e) {
-  if (this.status == 200) {
-
-    <b>var uInt8Array = new Uint8Array(this.response);</b> // Note: not xhr.responseText
-
-    var byte3 = uInt8Array[4]; // byte at offset 4
-  }
-};
-
-xhr.send();
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Hello Sammiches example" /> 
+  <Content type="html">
+     <![CDATA[ 
+       Hello, Sammiches!
+     ]]>
+  </Content> 
+</Module>
 </pre>
   </section>
 </div>
