@@ -629,14 +629,14 @@ public class SwingExample {
   &lt;UserPref name="username" display_name="Name" required="true"/&gt;
   &lt;Content type="html"&gt;
      &lt;![CDATA[ 
-       <div id="content"></div>
-       <script type="text/javascript" src="js/jquery.js" />
-       <script type="text/javascript">
+       &lt;div id="content"&gt;&lt;/div&gt;
+       &lt;script type="text/javascript" src="js/jquery.js" /&gt;
+       &lt;script type="text/javascript"&gt;
          // Get userprefs
          var prefs = new gadgets.Prefs();
          
          $('#content').html(prefs.getString('username'));
-       </script>
+       &lt;/script&gt;
      ]]&gt;
   &lt;/Content&gt;
 &lt;/Module&gt;
