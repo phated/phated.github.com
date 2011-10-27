@@ -664,8 +664,9 @@ public class SwingExample {
     <pre style="font-size:19px">
 &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
 &lt;Module&gt;
-  &lt;ModulePrefs title="User Preferences for __UP_username__" height="400" /&gt;
-  &lt;UserPref name="username" display_name="Name" required="true"/&gt;
+  &lt;ModulePrefs title="User Preferences for __UP_username__" height="400"&gt;
+    <b>&lt;Require feature="tabs"/&gt;</b>
+  &lt;/ModulePrefs&gt;
   &lt;Content type="html"&gt;
      &lt;![CDATA[ 
        &lt;div id="content"&gt;&lt;/div&gt;
