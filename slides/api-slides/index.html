@@ -652,6 +652,41 @@ public class SwingExample {
   </section>
 </div>
 
+<!--
+ *
+ * XML is well and good, but I love JavaScript
+ *
+-->
+<div class="slide centercontents">
+  <header><span class="theme1">Google Gadget</span> XML is well and good, but I &lt;3 JavaScript</header>
+  <section>
+  	Important ---> <a href="http://code.google.com/apis/gadgets/docs/reference.html#JS_Ref" style="float:right">JS References</a>
+    <pre style="font-size:19px">
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Module&gt;
+  &lt;ModulePrefs title="User Preferences for __UP_username__" height="400" /&gt;
+  &lt;UserPref name="username" display_name="Name" required="true"/&gt;
+  &lt;Content type="html"&gt;
+     &lt;![CDATA[ 
+       &lt;div id="content"&gt;&lt;/div&gt;
+       &lt;script type="text/javascript" 
+           src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"&gt;
+       &lt;/script&gt;
+       &lt;script type="text/javascript"&gt;
+         // Get userprefs
+         var prefs = new gadgets.Prefs();
+         
+         $('#content').html('Hello, ' + prefs.getString('username') + 
+                            '&lt;br&gt; Would you like a Sammich?');
+       &lt;/script&gt;
+     ]]&gt;
+  &lt;/Content&gt;
+&lt;/Module&gt;
+</pre>
+<a href="http://www.google.com/ig">Gadget Demo!</a>
+  </section>
+</div>
+
 
 <!--
  *
