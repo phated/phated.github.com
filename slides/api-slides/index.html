@@ -669,13 +669,11 @@ public class SwingExample {
   &lt;/ModulePrefs&gt;
   &lt;Content type="html"&gt;
      &lt;![CDATA[ 
-       &lt;div id="content"&gt;&lt;/div&gt;
        &lt;script type="text/javascript"&gt;
-         //gadgets.TabSet(opt_moduleId, opt_defaultTab, opt_container)
-         var tabs = new gadgets.TabSet(__MODULE_ID__, "Two");
-         //loop creating tabs
+         // gadgets.TabSet(opt_moduleId, opt_defaultTab, opt_container)
+         var tabs = new gadgets.TabSet();
          for(var x = 0; x &lt; 4; x++){
-         	var tab_Id = tabs.addTab("tab" + x); 
+            var tab_Id = tabs.addTab("tab" + x); // String addTab(tabName, opt_params)
             document.getElementById(tab_Id).innerHTML = "Content for tab " + x;
          }
        &lt;/script&gt;
