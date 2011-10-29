@@ -855,9 +855,10 @@ public class SwingExample {
   <header><span class="theme2">Google+</span> Hey a-hole, you are blocking my page and not HTML5 compliant!</header>
   <section>
     <pre>
-&lt;div class="g-plusone" data-size="tall" ... >&lt;/div> // YAY COMPLIANCE!
+&lt;!-- YAY COMPLIANCE! -->
+&lt;div class="g-plusone" data-size="tall" ... >&lt;/div>
 
-// Async Loading - Huzzah! Non-blocking!
+&lt;!-- Async Loading - Huzzah! Non-blocking! -->
 &lt;script type="text/javascript">
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
