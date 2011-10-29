@@ -1018,30 +1018,20 @@ GET https://www.googleapis.com/plus/v1/people/102147307918874735077
 
 <!--
  *
- * Using Files: Data URLs
+ * Ways to Retrieve People
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme2">Create</span> Data URLs</header>
+  <header><span class="theme2">Google+</span> Ways to Retrieve People</header>
   <section>
-    <pre>
-var link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = 'data:text/css;base64,' +
-            <b>window.btoa</b>('body { background: red; }');
-
-document.head.appendChild(link);
-</pre>
-  <p class="centertext">
-    Open <a href="data:text/html,<textarea style='font:20pt Courier;outline:none;padding:10px;height:50%;width:100%;border:1px solid #ccc;border-radius:5px' placeholder='Add code here...'></textarea>" target="_blank">text area</a>
-  </p>
-  </section>
-  <section>
-    <ul>
-      <li><b>Pro</b>: persistent URL. It <em>is</em> the content.</li>
-      <li><b>Pro</b>: 1 less network request.</li>
-      <li><b>Con</b>: 30% overhead.</li>
-    </ul>
+	<dl>
+      <dt>get</dt>
+      <dd>Get a person's profile.</dd>
+      <dt>search</dt>
+      <dd>Search all public profiles.</dd>
+      <dt>listByActivity</dt>
+      <dd>List all of the people in the specified collection for a particular activity.</dd>
+  </dl>
   </section>
 </div>
 
