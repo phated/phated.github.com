@@ -901,11 +901,16 @@ public class SwingExample {
  * BLUEPRINT: Photo Gallery
  *
 -->
-<div class="slide transparent centercontents blueprint">
+<div class="slide centercontents">
   <header>G+ API</header>
   <section>
-    <iframe src="https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI"></iframe>
+    <div id="plus-api-get"></div>
   </section>
+  <script>
+  	$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI', function(data){
+  		$('#plus-api-get').html(data);
+  	});
+  </script>
 </div>
 
 
@@ -2118,6 +2123,7 @@ function initAudio(arrBuff) {
     <script src="js/libs/yepnope.1.0.1-min.js" defer></script>
     <script src="js/slide-presentation.js" defer></script>
     <script src="js/slide-content.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" defer></script>
 
     <!--[if IE]>
     <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
