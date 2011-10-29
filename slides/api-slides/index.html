@@ -814,35 +814,15 @@ public class SwingExample {
 
 <!--
  *
- * FILE APIS: File
+ * Why is G+ API support so limited?
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme1">Import</span> Getting file handles: <code>File</code> / <code>FileList</code></header>
-  <aside class="note">
-    <section>
-      Getting access to the native file system is easier. New capabilities yield
-      more ways to get files in/out of your app. Easy import. Easy export.
-    </section>
-  </aside>
-  <section>
-    <pre>&lt;input type="file" id="files" accept="image/*" <b>multiple</b>&gt;
-</pre>
-    <pre style="margin-top:10px;">
-document.querySelector('#files').onchange = function(e) {
-  var files = <b>e.target.files</b>; // FileList of File objects.
-
-  for (var i = 0, f; f = files[i]; ++i) {
-    console.log(<b>f.name</b>, <b>f.type</b>, <b>f.size</b>,
-                <b>f.lastModifiedDate.toLocaleDateString()</b>);
-  }
-};
-</pre>
-    <p>
-      <input type="file" id="filereader-files" class="hidden-input" multiple accept="image/*">
-      <button id="file-select">Select some image files</button>
-      <output id="filereader-list"></output>
-    </p>
+  <header><span class="theme2">Google+</span> Why is G+ API support so limited?</header>
+  <section data-build>
+	<div>Just a Sample</div>
+	<div>Why? Feedback and Learning</div>
+	<div>Restrictions? Read Only, Public Data, Usage Quota</div>
   </section>
 </div>
 
