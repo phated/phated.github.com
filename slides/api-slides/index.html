@@ -829,25 +829,16 @@ public class SwingExample {
 
 <!--
  *
- * File APIs: Directory Upload
+ * Quick Honorable Mention: +1 Button
  *
 -->
-<div class="slide centercontents" id="slide-directory-upload">
-  <header><span class="theme1">Import</span> Directory upload</header>
+<div class="slide centercontents">
+  <header><span class="theme1">Google+</span> Quick Honorable Mention: +1 Button</header>
   <section>
-    <pre>&lt;input type="file" id="dir-select" <b>webkitdirectory</b> /&gt;</pre>
-    <pre>
-document.querySelector('#dir-select').onchange = function(e) {
-  var out = [];
-  for (var i = 0, f; f = <b>e.target.files</b>[i]; ++i) {
-    out.push(<b>f.webkitRelativePath</b>);
-  }
-  document.querySelector('output'),textContent = out.join('/n');
-};
+	<pre>
+&lt;script type="text/javascript" src="https://apis.google.com/js/plusone.js">&lt;/script>
+&lt;g:plusone>&lt;/g:plusone>		
 </pre>
-  </section>
-  <section style="width:100%">
-    <iframe style="height:195px;" data-src="../demos/directory-upload/index.html"></iframe>
   </section>
 </div>
 
