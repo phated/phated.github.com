@@ -1000,28 +1000,18 @@ GET https://www.googleapis.com/plus/v1/people/102147307918874735077
 
 <!--
  *
- * Using Files: FileReader
+ * What Resources Can We Retrieve?
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme3">Manipulate</span> Reading file content ( <code>FileReader</code> )</header>
+  <header><span class="theme2">Google+</span> What Resources Can We Retrieve?</header>
   <section>
-      <p>Asynchronously read file content into memory:</p>
-      <pre>
-var reader = new <b>FileReader</b>();
-
-reader.<b>readAsBinaryString</b>(File | Blob);
-
-reader.<b>readAsText</b>(File | Blob, opt_encoding /* default UTF-8 */);
-
-reader.<b>readAsDataURL</b>(Blob | File);
-
-reader.<b>readAsArrayBuffer</b>(Blob | File);</pre>
-  </section>
-  <section>
-      <p>Reading byte ranges: </p>
-      <pre>var blob = <b>file.slice</b>(startByte, stopByte, contentType);
-reader.<b>readAsBinaryString</b>(blob);</pre>
+	<ul>
+		<li>People</li>
+		<li>Activities</li>
+		<li>Comments</li>
+	</ul>
+	<h1>But only when they are Public! &lt;LAME!&gt;</h1>
   </section>
 </div>
 
