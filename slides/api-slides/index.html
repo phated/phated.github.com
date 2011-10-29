@@ -877,15 +877,18 @@ public class SwingExample {
 
 <!--
  *
- * DEMO: Unpack zip files in JS
+ * +1 Button: +1 last thing
  *
 -->
-<div class="slide transparent centercontents blueprint" data-backgroundid="bg-blueprint">
+<div class="slide centercontents">
+  <header><span class="theme2">Google+</span> +1 Button: +1 Last Thing</header>
   <section>
-    <h1>DEMO: Photo Gallery</h1>
-  </section>
-  <section class="centertext">
-    <p class="clickable"><a href="/demos/photo-gallery/index.html" target="_blank">LAUNCH</a></p>
+    <h1>Where does the +1 Button get the URL from?</h1>
+    <ol>
+    	<li>The href attribute on the button</li>
+    	<li>The <pre>&lt;link rel="canonical" ... /></pre> of the page</li>
+    	<li>The URL retrieved by <pre>document.location.href</pre> (not recommended)</li>
+    </ol>
   </section>
 </div>
 
