@@ -905,11 +905,12 @@ public class SwingExample {
 <div class="slide centercontents">
   <header>G+ API</header>
   <section>
+<pre>
+GET https://www.googleapis.com/plus/v1/people/102147307918874735077
+?key=API-KEY&alt=json
+</pre>
     <div id="plus-api-get" style="width:100%;height:400px;overflow-y:scroll;"></div>
   </section>
-  <pre>
-GET https://www.googleapis.com/plus/v1/people/102147307918874735077?key=API-KEY&alt=json
-</pre>
   <script>
   	$(document).ready(function(){
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
