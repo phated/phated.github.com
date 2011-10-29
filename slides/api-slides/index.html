@@ -833,7 +833,7 @@ public class SwingExample {
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme1">Google+</span> Quick Honorable Mention: +1 Button</header>
+  <header><span class="theme2">Google+</span> Quick Honorable Mention: +1 Button</header>
   <section>
 	<pre>
 &lt;script type="text/javascript" src=
@@ -848,28 +848,24 @@ public class SwingExample {
 
 <!--
  *
- * File APIs: Drag and drop File
+ * Hey a-hole: HTML5 compliant and async
  *
 -->
-<div class="slide centercontents" id="slide-dndfiles">
-  <header><span class="theme1">Import</span> Drag &amp; drop</header>
+<div class="slide centercontents">
+  <header><span class="theme2">Google+</span> Hey a-hole, you are blocking my page and not HTML5 compliant!</header>
   <section>
-    <pre>var reader = new <b>FileReader</b>();
-<b>reader.onload</b> = function(e) {
-  document.querySelector('img').src = <b>e.target.result</b>;
-};
+    <pre>
+&lt;div class="g-plusone" data-size="tall" ... >&lt;/div> // YAY COMPLIANCE!
 
-function onDrop(e) {
-  reader.<b>readAsDataURL</b>(<b>e.dataTransfer.files[0]</b>);
-};</pre>
-  </section>
-  <section>
-    <div id="dropzone" class="centercontents">
-      Drag in image files from your desktop
-    </div>
-  </section>
-  <section>
-    <div id="thumbnails"></div>
+// Async Loading - Huzzah! Non-blocking!
+&lt;script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+&lt;/script>
+</pre>
   </section>
 </div>
 
