@@ -1089,38 +1089,19 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
 
 <!--
  *
- * Using Files: Blob URLs
+ * One Last Thing: OAuth or API
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme2">Create</span> Blob URLs</header>
-  <aside class="note">
-    <section>
-      <ul>
-        <li>Chrome is prefixed with <code>window.webkitURL.createObjectURL()</code></li>
-        <li>In Google Chrome, <code>chrome://blob-internals/</code> will give you an overview of
-        the Blob URLs that have been allocated for a given app.</li>
-      </ul>
-    </section>
-  </aside>
+  <header><span class="theme2">Google+</span> One Last Thing: OAuth or API key</header>
   <section>
-    <pre class="centertext"><b>window.URL.createObjectURL</b>(File | Blob);</pre>
-    <pre>
-if (imgFile.type.match(/image.*/)) {
-  var blobURL = <b>window.URL.createObjectURL</b>(imgFile);
-
-  var img = document.createElement('img');
-  img.src = blobURL; // blob:http://example.com/d8c2c85e-ab1b
-  document.body.appendChild(img);
-
-  window.URL.revokeObjectURL(img.src); // clean up.
-}
-</pre>
+    <h2>No authentication = No API access</h2>
+    Types of Authentication:
     <ul>
-      <li><b>Pro</b>: temporary (and unique) URL handle to the content.</li>
-      <li><b>Pro</b>: Use as <code>src</code> or <code>href</code> attributes.</li>
-      <li><b>Con</b>: doesn't come for free. Use <code>revokeObjectURL()</code>!</li>
+    	<li>API Key - Public</li>
+    	<li>OAuth 2.0 - Private (or Public)</li>
     </ul>
+    Still a Preview/Beta = No Private Data
   </section>
 </div>
 
