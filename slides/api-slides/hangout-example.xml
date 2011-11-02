@@ -31,7 +31,8 @@
   				        output += '<div style="float:left; margin:10px;">';
   				        output += '<a href="' + item.actor.url + '" target="_blank">' + item.actor.displayName + '</a>';
   				        output += ' - ' + item.object.content;
-  				        output += '<div>' + postedDate.toLocaleString() + '</div>';
+  				        output += '<div style="margin:15px 0;">Posted on: ' + postedDate.toLocaleString() + '</div>';
+  				        output += '<div style="margin:15px 0;">Edited on: ' + editedDate.toLocaleString() + '</div>';
   				        output += '</div>';
   				        $('#' + tabId).html(output);
   				      });
