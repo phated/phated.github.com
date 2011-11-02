@@ -18,8 +18,7 @@
 			  var tabId = tabs.addTab(participant.displayName);
 			  var gplusId = participant.id;
 			  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-  				$(tabId).html(JSON.stringify(data, null, '\n'));
-  				console.log(tabId);
+  				$('#' + tabId).html(JSON.stringify(data, null, '\n'));
   		      }, "jsonp");
 			  //$(tabId).html(value);
 			})
