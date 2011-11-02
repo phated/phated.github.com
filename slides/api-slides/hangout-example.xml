@@ -17,8 +17,13 @@
 			$.each(participants, function(index, participant) {
 			  var tabId = tabs.addTab(participant.displayName);
 			  var gplusId = participant.id;
-			  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-  				$('#' + tabId).html(JSON.stringify(data, null, '\n'));
+			  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
+  				//$('#' + tabId).html(JSON.stringify(data, null, '\n'));
+  				$.each(data.items function(index, item) {
+  				  if(item.provider.title === "Hangout") {
+  				    $('#' + tabId).html(JSON.stringify(item, null, '\n'));
+  				  }
+  				});
   				console.log(data);
   		      }, "jsonp");
 			})
