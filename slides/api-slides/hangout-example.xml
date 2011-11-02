@@ -3,6 +3,7 @@
   <ModulePrefs title="Hangout/Gadget and Google+ API Example">
     <Require feature="rpc"/>
     <Require feature="views"/>
+    <Require feature="tabs" /> 
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
