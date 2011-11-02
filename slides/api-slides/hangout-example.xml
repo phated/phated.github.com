@@ -22,7 +22,9 @@
 		  }
 		  
 		  function callback(tabId) {}
-		  gadgets.util.registerOnLoadHandler(init);
+		  gapi.hangout.addApiReadyListener(function(){
+		    gadgets.util.registerOnLoadHandler(init);
+		  });
 	    </script>
     ]]>
   </Content>
