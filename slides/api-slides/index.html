@@ -1177,32 +1177,40 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
 
 <!--
  *
- * FileSystem: Open
+ * Important Aspects: Events
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme4">Store</span> Opening the file system</header>
-  <aside class="note">
-    <section>
-      <ul>
-        <li>If Chrome Web Store App: need to use <code>unlimitedStorage</code> manifest permission.</li>
-        <li>If not a Chrome app, need the <code>--unlimited-quota-for-files</code> flag set.</li>
-        <li>You also need the <code>--allow-file-access-from-files</code> flag to run this presentation from <code>file://</code>.</li>
-        <li>Prefixed in Chrome 12+: <code>window.webkitRequestFileSystem</code></li>
-      </ul>
-    </section>
-  </aside>
+  <header><span class="theme3">Hangouts</span> Important Aspects: Events</header>
   <section>
-    <pre>
-<b>window.requestFileSystem</b>(
-  TEMPORARY,        // persistent vs. temporary storage
-  1024 * 1024,      // size (bytes) of needed space
-  initFs,           // success callback
-  opt_errorHandler  // opt. error callback, denial of access
-);</pre>
+	<h2>Events</h2>
+	<ul>
+		<li>add*Listener and remove*Listener functions -> accept callback function</li>
+		<li>Pro-Tip: start your app's code by passing a callback to addApiReadyListener()</li>
+	</ul>
+	<pre>
+gapi.hangout.addApiReadyListener(function(){startMyApp()});
+</pre>
   </section>
 </div>
 
+<!--
+ *
+ * Important Aspects: Events
+ *
+-->
+<div class="slide centercontents">
+  <header><span class="theme3">Hangouts</span> Important Aspects: Application State</header>
+  <section>
+	<h2>Application State</h2>
+	<ul>
+		<li>State object -> single instance shared across all apps in Hangout</li>
+		<li>Restriction: data values must be stored as strings</li>
+		<li>Pro-Tip: use JSON.stringify(obj) and JSON.parse(obj)</li>
+		<li>Access and manage using API functions in the gapi.hangout.data namespace</li>
+	</ul>
+  </section>
+</div>
 
 <!--
  *
