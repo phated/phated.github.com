@@ -15,7 +15,7 @@
 		  function init() {
 		  	var participants = gapi.hangout.getParticipants();
 			$.each(participants, function(index, value) {
-			  tabs.addTab(value, {            
+			  tabs.addTab("value", {            
                 contentContainer: document.getElementById(index),
                 callback: callback
               });
