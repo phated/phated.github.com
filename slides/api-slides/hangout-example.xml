@@ -14,10 +14,13 @@
 		  var tabs = new gadgets.TabSet(__MODULE_ID__, "Two"); 
 		  function init() {
 		  	var participants = gapi.hangout.getParticipants();
-			$.each(participants, function(index, value) {
-			  var tabId = tabs.addTab(value.displayName);
-			  console.log(value);
-			  $(tabId).html(value);
+			$.each(participants, function(index, participant) {
+			  var tabId = tabs.addTab(participant.displayName);
+			  var gplusId = participant.id;
+			  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
+  				$(tabId).html(JSON.stringify(data, null, '\n'));
+  		      }, "jsonp");
+			  //$(tabId).html(value);
 			})
 		  }
 		  
