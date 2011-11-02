@@ -1150,18 +1150,27 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
 
 <!--
  *
- * FileSystem API
+ * Look Familiar?
  *
 -->
 <div class="slide transparent image" data-backgroundid="bg-filecabinets">
-  <div data-build>
-    <section class="topWide right dark" data-auto>
-      <h1>File System API</h1>
-    </section>
-  </div>
-  <span class="credit dark">
-    <a href="http://www.flickr.com/photos/christosnyc/87637818/" target="_blank">http://www.flickr.com/photos/christosnyc/87637818/</a>
-  </span>
+  <header><span class="theme3">Hangouts</span> Look Familiar?</header>
+  <section>
+  	<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?>
+&lt;Module>
+  &lt;ModulePrefs title="Your App Name">
+    &lt;Require feature="rpc"/>
+    &lt;Require feature="views"/>
+  &lt;/ModulePrefs>
+  &lt;Content type="html">
+    &lt;![CDATA[
+      &lt;script src="//hangoutsapi.appspot.com/static/hangout.js">&lt;/script>
+      <!-- Your application code -->
+    ]]>
+  &lt;/Content>
+&lt;/Module></pre>
+  </section>
 </div>
 
 
