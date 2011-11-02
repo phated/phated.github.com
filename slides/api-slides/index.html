@@ -1122,40 +1122,13 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
 
 <!--
  *
- * Using Files: Blob URLs (Inline Worker)
+ * Hangouts Transition Slide
  *
 -->
-<div class="slide centercontents">
-  <header><span class="theme2">Create</span> Blob URL Example: Inline Web Workers</header>
-  <aside class="note">
-     <section>
-       BlobBuilder is prefixed in Chrome 12+ as <code>window.WebKitBlobBuilder()</code>.
-     </section>
-   </aside>
+<div class="slide centercontents transparent" data-backgroundid="bg-white">
+  <header><span class="theme3">Hangouts</span> When Google Implements Your Plugin Natively...</header>
   <section>
-    <pre style="font-size:22px">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;body&gt;
-  <b>&lt;script type=&quot;javascript/worker&quot;&gt;
-    onmessage = function(e) {
-      ...
-    };
-  &lt;/script&gt;</b>
-  &lt;script&gt;
-    var bb = new <b>BlobBuilder</b>();
-    bb.append(
-        <b>document.querySelector('[type="javascript/worker"]').textContent</b>);
-
-    var worker = new Worker(<b>window.URL.createObjectURL(bb.getBlob())</b>);
-    worker.onmessage = function(e) {
-      ...
-    };
-    worker.postMessage({cmd: 'init'}); // Start the worker.
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+  	<img src="images/ragefu.jpg">
   </section>
 </div>
 
