@@ -19,7 +19,7 @@
 			  var gplusId = participant.id;
 			  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
   				$(tabId).html(JSON.stringify(data, null, '\n'));
-  				console.log(data);
+  				console.log(tabId);
   		      }, "jsonp");
 			  //$(tabId).html(value);
 			})
