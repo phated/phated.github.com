@@ -26,7 +26,7 @@
   				      console.log(data);
   				      $.each(data.items, function(index, item) {
   				        var output = '<img src="' + item.actor.image.url + '" width="100" height="100" style="float:left; margin:10px;" />';
-  				        output += '<span style="float:left; margin:10px;"></span><a href="' + item.actor.url + '" target="_blank">' + item.actor.displayName + '</a>';
+  				        output += '<span style="float:left; margin:10px;"><a href="' + item.actor.url + '" target="_blank">' + item.actor.displayName + '</a>';
   				        output += ' - ' + item.object.content + '</span>';
   				        $('#' + tabId).html(output);
   				      });
