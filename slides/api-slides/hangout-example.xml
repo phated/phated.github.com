@@ -21,7 +21,7 @@
 		  }
 		  
 		  gapi.hangout.addApiReadyListener(function(){
-		    gadgets.util.registerOnLoadHandler(init);
+		    init()
 		  });
 	    </script>
     ]]>
