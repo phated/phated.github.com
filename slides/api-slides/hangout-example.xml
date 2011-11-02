@@ -22,7 +22,7 @@
   				$.each(data.items, function(index, item) {
   				  if(item.provider.title === "Hangout") {
   				  	activityId = item.id;
-  				  	$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
+  				  	$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){
   				      $('#' + tabId).html(JSON.stringify(data, null, '\n'));
   				      console.log(data);
   				    }, "jsonp");
