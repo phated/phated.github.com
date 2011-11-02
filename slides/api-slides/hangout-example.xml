@@ -21,7 +21,11 @@
   				//$('#' + tabId).html(JSON.stringify(data, null, '\n'));
   				$.each(data.items, function(index, item) {
   				  if(item.provider.title === "Hangout") {
-  				    $('#' + tabId).html(JSON.stringify(item, null, '\n'));
+  				  	activityId = item.id;
+  				  	$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
+  				      $('#' + tabId).html(JSON.stringify(data, null, '\n'));
+  				      console.log(data);
+  				    }
   				  }
   				});
   				console.log(data);
