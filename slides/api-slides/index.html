@@ -1214,46 +1214,24 @@ gapi.hangout.addApiReadyListener(function(){startMyApp()});
 
 <!--
  *
- * FileSystem: Fetching a file by name
+ * Available Namespaces
  *
 -->
 <div class="slide centercontents">
-  <header><span class="theme4">Store</span> Fetching a file by name</header>
-  <aside class="note">
-    <section>
-      <pre style="font-size:16px;padding:0;border:none;background:none">
-function errorHandler(e) {
-  switch (e.code) {
-    case FileError.QUOTA_EXCEEDED_ERR:
-      ...
-    case FileError.NOT_FOUND_ERR:
-      ...
-  }
-}</pre>
-    </section>
-  </aside>
+  <header><span class="theme3">Hangouts</span> Available Namespaces</header>
   <section>
-    <pre style="font-size:22px;">
-function initFs(fs) {
-
-  <b>fs.root.getFile</b>('logFile.txt', {create: true}, function(fileEntry) {
-
-    // <b>fileEntry.isFile</b> == true
-    // <b>fileEntry.name</b> == 'logFile.txt'
-    // <b>fileEntry.fullPath</b> == '/logFile.txt'
-
-    // Get a File obj
-    <b>fileEntry.file</b>(function(file) { ... }, errorHandler);
-
-    // <b>fileEntry.remove</b>(function() {}, errorHandler);
-    // <b>fileEntry.moveTo</b>(...);
-    // <b>fileEntry.copyTo</b>(...);
-    // <b>fileEntry.getParent</b>(function(dirEntry) {}, errorHandler);
-
-  }, errorHandler);
-
-}
-</pre>
+    <dl>
+      <dt><a href="#participant">class gapi.hangout.Participant</a></dt>
+      <dd>Represents a person who has joined a Google hangout, including their name, image and id.</dd>
+      <dt><a href="#gapi.hangout">namespace gapi.hangout</a></dt>
+      <dd>Provides basic information such as the list of participants, the locale, and whether the app is initialized and visible.</dd>
+      <dt><a href="#gapi.hangout.av">namespace gapi.hangout.av</a></dt>
+      <dd>Provides functions for controlling hangout microphones, cameras, and speakers.</dd>
+      <dt><a href="#gapi.hangout.data">namespace gapi.hangout.data</a></dt>
+      <dd>Provides functions for sharing data (getting and setting gadget state) between every instance of a gadget in a hangout.</dd>
+      <dt><a href="#gapi.hangout.layout">namespace gapi.hangout.layout</a></dt>
+      <dd>Provides functions for getting and setting layout elements in the Hangout user interface.</dd>
+    </dl>
   </section>
 </div>
 
