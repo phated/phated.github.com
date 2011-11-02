@@ -22,7 +22,6 @@
   				  if(item.provider.title === "Hangout") {
   				  	activityId = item.id;
   				  	$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){
-  				      //$('#' + tabId).html(JSON.stringify(data, null, '\n'));
   				      console.log(data);
   				      $.each(data.items, function(index, item) {
   				        var postedDate = new Date(item.published);
@@ -34,7 +33,7 @@
   				        output += '<div style="margin:15px 0;">Posted on: ' + postedDate.toLocaleString() + '</div>';
   				        output += '<div style="margin:15px 0;">Edited on: ' + editedDate.toLocaleString() + '</div>';
   				        output += '</div>';
-  				        $('#' + tabId).html(output);
+  				        $('#' + tabId).append(output);
   				      });
 //{ "items": [ { "published": "2011-11-02T03:33:04.286Z", "updated": "2011-11-02T03:33:04.286Z", "actor": { "id": "102147307918874735077", "displayName": "Blaine Bublitz", "url": "https://plus.google.com/102147307918874735077", "image": { "url": "https://lh5.googleusercontent.com/-lf7areDJR-I/AAAAAAAAAAI/AAAAAAAAAAA/ObL7F8aPlPg/photo.jpg" } }, "object": { "objectType": "comment", "content": "Testy McTest" } } ] }
   				    }, "jsonp");
