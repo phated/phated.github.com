@@ -25,8 +25,9 @@
   				      //$('#' + tabId).html(JSON.stringify(data, null, '\n'));
   				      console.log(data);
   				      $.each(data.items, function(index, item) {
-  				        var output = '<img src="' + item.actor.image.url + '" width="100" height="100" />';
-  				        output += '<a href="' + item.actor.url + '">' + item.actor.displayName + '</a>';
+  				        var output = '<img src="' + item.actor.image.url + '" width="100" height="100" style="float:left; margin:10px;" />';
+  				        output += '<a href="' + item.actor.url + '" target="_blank" style="float:left; margin:10px;">' + item.actor.displayName + '</a>';
+  				        output += '<div style="float:left; margin:10px;">' + item.object.objectType + ': ' + item.object.content + '</div>';
   				        $('#' + tabId).html(output);
   				      });
 //{ "items": [ { "published": "2011-11-02T03:33:04.286Z", "updated": "2011-11-02T03:33:04.286Z", "actor": { "id": "102147307918874735077", "displayName": "Blaine Bublitz", "url": "https://plus.google.com/102147307918874735077", "image": { "url": "https://lh5.googleusercontent.com/-lf7areDJR-I/AAAAAAAAAAI/AAAAAAAAAAA/ObL7F8aPlPg/photo.jpg" } }, "object": { "objectType": "comment", "content": "Testy McTest" } } ] }
