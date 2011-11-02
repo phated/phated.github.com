@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Hangout/Gadget and Google+ API Example">
+    <Require feature="rpc"/>
+    <Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <!DOCTYPE html>
+        <script src="//hangoutsapi.appspot.com/static/hangout.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+      	<script>
+		  var tabs = new gadgets.TabSet(__MODULE_ID__, "Two"); 
+		  function init() {
+		  	var participants = gapi.hangout.getParticipants();
+			$.each(participants, function(index, value) {
+			  tabs.addTab(value, {            
+                contentContainer: document.getElementById(index),
+                callback: callback
+              });
+			})
+		  }
+		  
+		  function callback(tabId) {}
+		  gadgets.util.registerOnLoadHandler(init);
+	    </script>
+    ]]>
+  </Content>
+</Module>
