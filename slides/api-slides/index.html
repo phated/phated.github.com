@@ -1210,7 +1210,7 @@ gapi.hangout.onApiReady.add(function(eventObj){
   <section>
 	<h2>Application State</h2>
 	<ul>
-		<li>State object -> single instance shared across all apps in Hangout</li>
+		<li>State object = single instance shared across all apps in Hangout</li>
 		<li>Restriction: data values must be stored as strings</li>
 		<li>Pro-Tip: use JSON.stringify(obj) and JSON.parse(obj)</li>
 		<li>Access and manage using API functions in the gapi.hangout.data namespace</li>
@@ -1227,8 +1227,6 @@ gapi.hangout.onApiReady.add(function(eventObj){
   <header><span class="theme3">Hangouts</span> Available Namespaces</header>
   <section>
     <dl style="font-size: 24px;">
-      <dt><a href="https://developers.google.com/+/hangouts/reference#participant">class gapi.hangout.Participant</a></dt>
-      <dd>Represents a person who has joined a Google hangout, including their name, image and id.</dd>
       <dt><a href="https://developers.google.com/+/hangouts/reference#gapi.hangout">namespace gapi.hangout</a></dt>
       <dd>Provides basic information such as the list of participants, the locale, and whether the app is initialized and visible.</dd>
       <dt><a href="https://developers.google.com/+/hangouts/reference#gapi.hangout.av">namespace gapi.hangout.av</a></dt>
