@@ -1165,7 +1165,7 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
   &lt;/ModulePrefs>
   &lt;Content type="html">
     &lt;![CDATA[
-      <b>&lt;script src="//hangoutsapi.appspot.com/static/hangout.js">
+      <b>&lt;script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=0.1">
       &lt;/script></b>
       &lt;!-- Your application code -->
     ]]>
@@ -1185,11 +1185,16 @@ GET <a href="https://www.googleapis.com/plus/v1/comments/Lz9slv_MwXBsxweeI37cVCL
   <section>
 	<h2>Events</h2>
 	<ul>
-		<li>add*Listener and remove*Listener functions -> accept callback function</li>
-		<li>Pro-Tip: start your app's code by passing a callback to addApiReadyListener()</li>
+		<li>Event = Object containing 2 functions: add &amp; remove</li>
+		<li>on*.add(callback) and on*.remove(callback)</li>
+		<li>Pro-Tip: start your app's code by passing a callback to onApiReady.add(), such as:</li>
 	</ul>
 	<pre>
-gapi.hangout.addApiReadyListener(function(){startMyApp()});
+gapi.hangout.onApiReady.add(function(eventObj){
+  if (eventObj.isApiReady) {
+    startMyApp();
+  }
+));
 </pre>
   </section>
 </div>
