@@ -1,8 +1,8 @@
 /**
  * @author phated
  */
-(function startMyApp($) {
-	var tabs = new gadgets.TabSet(__MODULE_ID__); 
+(function startMyApp(tabs) {
+	
 
 	var participants = gapi.hangout.getParticipants();
 		$.each(participants, function(index, participant) {
