@@ -32,7 +32,7 @@ function init() {
 }
 
 function addTabForEachPerson(tabs, participants) {
-	var tabIds;
+	var tabIds = [];
 	$.each(participants, function(index, participant) {
 		var tabId = tabs.addTab(participant.person.displayName)
 		tabIds.push(tabId);
