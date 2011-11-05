@@ -13,7 +13,9 @@ function init() {
 	
 	// Event Handler
 	gapi.hangout.onParticipantsAdded.add(
-	  participantJoined(newParticipants)
+		function(newParticipants) {
+			participantJoined(newParticipants);
+		}
 	)
 };
 
