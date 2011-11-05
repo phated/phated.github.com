@@ -16,7 +16,7 @@
   					if (eventObj.isApiReady) {
   						
   						var tabs = new gadgets.TabSet(__MODULE_ID__); 
-    					startMyApp(tabs, participants);
+    					startMyApp(tabs);
   					}
 					});
 	    </script>

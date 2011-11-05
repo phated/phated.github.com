@@ -1,7 +1,7 @@
 /**
  * @author phated
  */
-function startMyApp(tabs, participants) {
+function startMyApp(tabs) {
 	
 
 	var participants = gapi.hangout.getParticipants();
