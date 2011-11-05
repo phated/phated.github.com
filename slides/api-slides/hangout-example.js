@@ -38,4 +38,5 @@ function addTabForEachPerson(tabs, participants) {
 		tabIds.push(tabId);
 		tabs.setSelectedTab(index);
 	});
+	return tabIds;
 }
