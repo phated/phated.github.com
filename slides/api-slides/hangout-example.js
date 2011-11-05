@@ -6,7 +6,7 @@
 
 	var participants = gapi.hangout.getParticipants();
 		$.each(participants, function(index, participant) {
-		  var tabId = tabs.addTab(participant.displayName);
+		  var tabId = tabs.addTab(participant.person.displayName);
 		  tabs.setSelectedTab(index);
 		  var gplusId = participant.id;
 		  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
