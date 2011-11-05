@@ -4,9 +4,9 @@
 function init() {
 	var tabs = new gadgets.TabSet(); 
 	var participants = gapi.hangout.getParticipants();
-		$.each(participants, function(index, participant) {
-		  var tabId = tabs.addTab(participant.person.displayName);
-		  tabs.setSelectedTab(index);
+	
+	var tabIds = addTabForEachPerson(tabs, participants);
+		
 		  var gplusId = participant.person.id;
 		  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
 			$.each(data.items, function(index, item) {
@@ -29,5 +29,12 @@ function init() {
 			  }
 			});
 	      }, "jsonp");
-		})
+}
+
+function addTabForEachPerson(tabs, participants) {
+	var tabId;
+	$.each(participants, function(index, participant) {
+		tabId.push(tabs.addTab(participant.person.displayName));
+		tabs.setSelectedTab(index);
+	});
 }
