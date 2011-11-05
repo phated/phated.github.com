@@ -4,7 +4,7 @@
 function startMyApp(tabs, participants) {
 	
 
-	//var participants = gapi.hangout.getParticipants();
+	var participants = gapi.hangout.getParticipants();
 		$.each(participants, function(index, participant) {
 		  var tabId = tabs.addTab(participant.person.displayName);
 		  tabs.setSelectedTab(index);
