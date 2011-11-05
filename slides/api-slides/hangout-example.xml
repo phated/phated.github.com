@@ -17,7 +17,7 @@
   						var tabs = new gadgets.TabSet(__MODULE_ID__); 
     					startMyApp(tabs);
   					}
-					);
+					});
 	    </script>
 	    <link rel="stylesheet" href="http://phated.github.com/slides/api-slides/hangout-example.css" type="text/css">
     ]]>
