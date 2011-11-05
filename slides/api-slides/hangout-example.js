@@ -10,13 +10,6 @@ function init() {
 	var gplusIds = getGPlusIds(participants);
 	
 	getGPlusActivities(gplusIds, tabIds);
-	
-	// Event Handler
-	gapi.hangout.onParticipantsAdded.add(
-		function(newParticipants) {
-			participantJoined(newParticipants, tabs, tabIds);
-		}
-	)
 };
 
 function addTabForEachPerson(tabs, participants) {
@@ -72,12 +65,4 @@ function outputStuff(data, tabIds, activityIndex) {
 		output += '</div>';
 		$('#' + tabIds[activityIndex]).append(output);
 	});
-}
-
-function participantJoined(newParticipants, tabs, tabIds) {
-	tabIds.push(addTabForEachPerson(tabs, newParticipants));
-		
-	var gplusIds = getGPlusIds(newParticipants);
-	
-	getGPlusActivities(gplusIds, tabIds);
 }
