@@ -32,9 +32,10 @@ function init() {
 }
 
 function addTabForEachPerson(tabs, participants) {
-	var tabId;
+	var tabIds;
 	$.each(participants, function(index, participant) {
-		tabId.push(tabs.addTab(participant.person.displayName));
+		var tabId = tabs.addTab(participant.person.displayName)
+		tabIds.push(tabId);
 		tabs.setSelectedTab(index);
 	});
 }
