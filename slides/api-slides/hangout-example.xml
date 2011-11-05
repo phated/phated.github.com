@@ -14,8 +14,9 @@
       	<script>
 		  		gapi.hangout.onApiReady.add(function(eventObj){
   					if (eventObj.isApiReady) {
+  						var participants = gapi.hangout.getParticipants();
   						var tabs = new gadgets.TabSet(__MODULE_ID__); 
-    					startMyApp(tabs);
+    					startMyApp(tabs, participants);
   					}
 					});
 	    </script>
