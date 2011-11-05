@@ -2,7 +2,7 @@
  * @author phated
  */
 function init() {
-	var tabs = new gadgets.TabSet(__MODULE_ID__); 
+	var tabs = new gadgets.TabSet(); 
 	var participants = gapi.hangout.getParticipants();
 		$.each(participants, function(index, participant) {
 		  var tabId = tabs.addTab(participant.person.displayName);
