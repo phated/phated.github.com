@@ -1,0 +1,8 @@
+.tablib_table {
+	font-size: 18px;
+}
+.tablib_selected,
+.tablib_unselected {
+	width: 120px;
+	border-radius: 10px 10px 0 0;
+}
