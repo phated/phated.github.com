@@ -9,7 +9,7 @@ function init() {
 		
 	var gplusIds = getGPlusIds(participants);
 	
-	getGPlusActivities(gplusIds);
+	getGPlusActivities(gplusIds, tabIds);
 };
 
 function addTabForEachPerson(tabs, participants) {
@@ -30,29 +30,29 @@ function getGPlusIds(participants) {
 	return gplusIds;
 }
 
-function getGPlusActivities(gplusIds) {
+function getGPlusActivities(gplusIds, tabIds) {
 	$.each(gplusIds, function(index, gplusId) {
-		$.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){findHangoutActivity(data)}, "jsonp");
+		$.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){findHangoutActivity(data, tabIds)}, "jsonp");
 	});
 }
 
-function findHangoutActivity(data) {
+function findHangoutActivity(data, tabIds) {
 	var activityIds = [];
 	$.each(data.items, function(index, item) {
 		if(item.provider.title === "Hangout") {
 			activityIds.push(item.id);
-			getHangoutActivityComments(activityIds);
+			getHangoutActivityComments(activityIds, tabIds);
 		}
 	});
 }
 
-function getHangoutActivityComments(activityIds) {
+function getHangoutActivityComments(activityIds, tabIds) {
 	$.each(activityIds, function(index, activityId) {
-		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data)}, "jsonp");
+		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data, tabIds)}, "jsonp");
 	});
 }
 
-function outputStuff(data) {
+function outputStuff(data, tabIds) {
 	$.each(data.items, function(index, item) {
 		var postedDate = new Date(item.published);
 		var editedDate = new Date(item.updated);
@@ -63,6 +63,6 @@ function outputStuff(data) {
 		output += '<div style="margin:15px 0;">Posted on: ' + postedDate.toLocaleString() + '</div>';
 		output += '<div style="margin:15px 0;">Edited on: ' + editedDate.toLocaleString() + '</div>';
 		output += '</div>';
-		$('#' + tabId).append(output);
+		$('#' + tabIds[index]).append(output);
 	});
 }
