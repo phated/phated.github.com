@@ -32,7 +32,7 @@ function getGPlusIds(participants) {
 
 function getGPlusActivities(gplusIds) {
 	$.each(gplusIds, function(index, gplusId) {
-		$.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', findHangoutActivity(data), "jsonp");
+		$.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){findHangoutActivity(data)}, "jsonp");
 	});
 }
 
@@ -48,7 +48,7 @@ function findHangoutActivity(data) {
 
 function getHangoutActivityComments(activityIds) {
 	$.each(activityIds, function(index, activityId) {
-		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', outputStuff(data), "jsonp");
+		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data)}, "jsonp");
 	});
 }
 
