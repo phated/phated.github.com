@@ -1,7 +1,7 @@
 /**
  * @author phated
  */
-(function startMyApp(tabs, participants) {
+function startMyApp(tabs, participants) {
 	
 
 	//var participants = gapi.hangout.getParticipants();
@@ -31,4 +31,4 @@
 			});
 	      }, "jsonp");
 		})
-})(jQuery)
+}
