@@ -48,11 +48,11 @@ function findHangoutActivity(data, tabIds) {
 
 function getHangoutActivityComments(activityIds, tabIds) {
 	$.each(activityIds, function(index, activityId) {
-		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data, tabIds)}, "jsonp");
+		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data, tabIds, index)}, "jsonp");
 	});
 }
 
-function outputStuff(data, tabIds) {
+function outputStuff(data, tabIds, activityIndex) {
 	$.each(data.items, function(index, item) {
 		var postedDate = new Date(item.published);
 		var editedDate = new Date(item.updated);
@@ -63,6 +63,6 @@ function outputStuff(data, tabIds) {
 		output += '<div style="margin:15px 0;">Posted on: ' + postedDate.toLocaleString() + '</div>';
 		output += '<div style="margin:15px 0;">Edited on: ' + editedDate.toLocaleString() + '</div>';
 		output += '</div>';
-		$('#' + tabIds[index]).append(output);
+		$('#' + tabIds[activityIndex]).append(output);
 	});
 }
