@@ -7,7 +7,7 @@ function init() {
 		$.each(participants, function(index, participant) {
 		  var tabId = tabs.addTab(participant.person.displayName);
 		  tabs.setSelectedTab(index);
-		  var gplusId = participant.id;
+		  var gplusId = participant.person.id;
 		  $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
 			$.each(data.items, function(index, item) {
 			  if(item.provider.title === "Hangout") {
