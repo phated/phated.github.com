@@ -166,6 +166,7 @@
   	$(document).ready(function(){
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
   			$(".displayName").html(data.displayName);
+  			$(".tagline").html(data.tagline);
   		}, "jsonp");
   	});  
   </script>
