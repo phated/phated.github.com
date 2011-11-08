@@ -98,16 +98,16 @@
     </div>
     <div class="sidebar">
       <div class="well">
-        <h5>Links</h5>
+        <!--<h5>Links</h5>
         <ul class="profile-urls">
-          <!--<li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>-->
-        </ul>
-        <h5>Sidebar</h5>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>-->
+        <h5>About Me</h5>
         <ul>
-          <li><a href="#">Link</a></li>
+          <li class="profileImage"></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
@@ -167,11 +167,12 @@
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
-  			$.each(data.urls, function(index, url) {
+  			/*$.each(data.urls, function(index, url) {
   				if(url.type === undefined) {
   					$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + url.value +"</a></li>");
   				}
-  			});
+  			});*/
+  			$(".profileImage").html("<a href=\"" + data.image.url + "\">" + data.image.url + "</a>");
   		}, "jsonp");
   	});  
   </script>
