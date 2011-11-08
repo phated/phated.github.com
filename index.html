@@ -169,7 +169,7 @@
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
   				var urlDomain = url.value.split("http://");
-  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[0] +"</a></li>");
+  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[1] +"</a></li>");
   			});
   		}, "jsonp");
   	});  
