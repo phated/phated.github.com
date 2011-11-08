@@ -168,7 +168,7 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				if(url.type === null) {
+  				if(url.type === undefined) {
   					$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + url.value +"</a></li>");
   				}
   			});
