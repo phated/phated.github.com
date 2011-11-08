@@ -168,8 +168,9 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				var urlDomain = url.value.split("http://www.") || url.value.split("http://");
-  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[1] +"</a></li>");
+  				var stripWww = url.value.split("www.");
+  				var stripHttp = stripWww.split("http://");
+  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[0] +"</a></li>");
   			});
   		}, "jsonp");
   	});  
