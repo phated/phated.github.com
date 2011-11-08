@@ -168,7 +168,7 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				$(".profile-urls").append("<li><a href=\"#\">" + data.urls +"</a></li>")
+  				$(".profile-urls").append("<li><a href=\"#\">" + url.value +"</a></li>")
   			});
   		}, "jsonp");
   	});  
