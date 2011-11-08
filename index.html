@@ -165,7 +165,7 @@
   <script>
   	$(document).ready(function(){
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-  			$('#plus-api-get').html(JSON.stringify(data, null, '\n'));
+  			$(".displayName").html(JSON.stringify(data.displayName, null));
   		}, "jsonp");
   	});  
   </script>
