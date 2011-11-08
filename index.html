@@ -168,7 +168,8 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + url.value.split("http://")[0] +"</a></li>")
+  				var urlDomain = url.value.split("http://");
+  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[0] +"</a></li>");
   			});
   		}, "jsonp");
   	});  
