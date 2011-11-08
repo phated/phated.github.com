@@ -168,9 +168,9 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				var stripWww = url.value.split("www.");
-  				var stripHttp = stripWww.split("http://");
-  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + urlDomain[0] +"</a></li>");
+  				var pathExtract = /^https?:\/\/(*)\./;
+					var thisUrl = (pathExtract.exec(url.value))[0];
+  				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + thisUrl +"</a></li>")
   			});
   		}, "jsonp");
   	});  
