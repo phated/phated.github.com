@@ -169,7 +169,7 @@
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
   				//var pathExtract = /^(([^:\/?#]+):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/;
-  				var pathExtract = /(?:http:\/\/)?(?:(?:[^.]+)\.)?(\w*)(?:\.\w*)?\/?(\w*)?/;
+  				var pathExtract = /(?:http:\/\/)?(?:(?:[^.]+)\.)?(\w*)\.?(?:\w*)?\/?(\w*)?/;
 					var thisUrl = (pathExtract.exec(url.value));
   				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + thisUrl[0] +"</a></li>")
   			});
