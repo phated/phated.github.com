@@ -110,10 +110,11 @@
           <li class="profileImage"></li>
           <li class="aboutMe"></li>
         </ul>
-        <h5>Sidebar</h5>
-        <ul>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+        <h5>School</h5>
+        <ul class="school">
+        </ul>
+        <h5>Work</h5>
+        <ul class="work">
         </ul>
       </div>
     </div>
@@ -170,6 +171,15 @@
   			});*/
   			$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
   			$(".aboutMe").html(data.aboutMe);
+  			$.each(data.organizations, function(index, organization) {
+  				if(organization.type === "school") {
+  					$(".school").append("<li>Degree: " + organization.title + "</li>");
+  					$(".school").append("<li>School: " + organization.name + "</li>");
+  				} else if(organization.type === "work") {
+  					$(".work").append("<li>Position: " + organization.title + "</li>");
+  					$(".work").append("<li>Company: " + organization.name + "</li>");
+  				}
+  			});
   		}, "jsonp");
   	});  
   </script>
