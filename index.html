@@ -108,11 +108,8 @@
         <h5>About Me</h5>
         <ul>
           <li class="profileImage"></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <li class="displayName"></li>
+          <li class="aboutMe"></li>
         </ul>
         <h5>Sidebar</h5>
         <ul>
@@ -173,6 +170,7 @@
   				}
   			});*/
   			$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
+  			$(".aboutMe").html(data.aboutMe);
   		}, "jsonp");
   	});  
   </script>
