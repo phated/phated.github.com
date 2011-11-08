@@ -168,7 +168,7 @@
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
   			$.each(data.urls, function(index, url) {
-  				var pathExtract = /^https?:\/\/(*)\./i;
+  				var pathExtract = /^https?:\/\/(\w*)\./;
 					var thisUrl = (pathExtract.exec(url.value))[0];
   				$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + thisUrl +"</a></li>")
   			});
