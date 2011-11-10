@@ -144,8 +144,8 @@
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
         	if( JSONSelect.match(".verb", item)[0] === "share") {
         		var source   = $("#reshare-template").html();
-            var template = Handlebars.compile(source);
-            var html    =  new Handlebars.SafeString(template(item));
+            var template = new Handlebars.SafeString(Handlebars.compile(source));
+            var html    =  template(item);
             $(".row1").append(html);
         	}	
         });
