@@ -175,7 +175,7 @@
 						$(".row" + rowNumber).append(
 						  "<div class=\"span5\">" +
                 "<h2>Heading</h2>" +
-                "<p>" + post.object.content + "</p>" +
+                "<p>" + JSONSelect.match(".object .content", post) + "</p>" +
                 "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
               "</div>"
             );
