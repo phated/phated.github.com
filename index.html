@@ -101,32 +101,6 @@
       </div>
     </div>
   </div>
-  <!--<div id="container">
-    <header>
-		<div class="container_12">
-		<span class="header-title">Blaine Bublitz - { Phated }</span><br />
-		<div class="header-social">
-			{ Social }
-			<a href="mailto:phate666x@gmail.com"><img src="img/google.png" alt="email" /></a>
-			<a href="http://gplus.to/phated"><img src="img/GooglePlus.png" alt="Google+" title="Blaine Bublitz"/></a>
-			<a href="http://twitter.com/yarrsoftware"><img src="img/twitter.png" alt="Twitter" title="Yarr Software" /></a>
-			<a href="http://facebook.com/blaine.bublitz"><img src="img/facebook.png" alt="Facebook" title="Blaine Bublitz" /></a>
-		</div>
-	  </div>
-    </header>
-	<div id="main" role="main" class="container_12">
-			Test main content text
-    </div>
-    <footer>
-    	<div class="container_12">
-    		Page Created using HTML5 Boilerplate <a href="http://html5boilerplate.com">(html5boilerplate.com)</a><br />
-	    	Social Icons: <a href="http://jwloh.deviantart.com/art/Aquaticus-Social-91014249">Aquaticus.Social by ~jwloh</a> on Deviant Art<br />
-	    	Google+ Icon: <a href="http://socialmedia101.artizondigital.com/2011/08/my-favorite-social-media-icons-free-google-icon/">Artizon Digital - Sue Surdam</a><br />
-			&copy; Copyright Blaine Bublitz - 2011
-    	</div>
-    </footer>
-  </div>--> <!--! end of #container -->
-
 
   <!-- JavaScript at the bottom for fast page loading -->
 
@@ -167,38 +141,12 @@
   		}, "jsonp");
   		
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-      //https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?key=
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
         	var source   = $("#reshare-template").html();
           var template = Handlebars.compile(source);
           var html    = template(item);
           $(".row1").append(html);
         });
-				/*var rowNumber = 0;
-				var rowChildren = 0;
-				$.each(data.items, function(index, post) {
-					if(rowChildren === 0) {
-						$(".content").append("<div class=\"row row" + rowNumber + "\"></div>");
-					}
-					if(rowChildren < 2) {
-						$(".row" + rowNumber).append(
-						  
-            );
-            rowChildren++;
-					} else if(rowChildren === 2) {
-						$(".row" + rowNumber).append(
-						  "<div class=\"span6\">" +
-                "<h2>Heading</h2>" +
-                "<p>" + post.object.content + "</p>" +
-                "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
-              "</div>"
-            );
-            rowChildren++;
-					} else {
-						rowChildren = 0;
-						rowNumber++;
-					}	
-				});*/
   		}, "jsonp");
   	});  
   </script>
@@ -223,9 +171,10 @@
   <!-- Templates! Brought to us by Handlebars.js - http://www.handlebarsjs.com/ -->
   <script id="reshare-template" type="text/x-handlebars-template">
     <div class="span5">
-      <h2>{{annotation}}</h2>
-      <p>{{title}}</p>
-      <p><a class="btn" href="{{url}}">View details &raquo;</a></p>
+      <h2>Reshared From {{object.actor.displayName}}</h2>
+      <h4>{{annotation}}</h4>
+      <p>{{object.content}}</p>
+      <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
   </script>
 </body>
