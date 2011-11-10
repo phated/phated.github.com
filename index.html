@@ -56,9 +56,7 @@
         <p><a class="btn primary large">Learn more &raquo;</a></p>
       </div>
       <!-- Example row of columns -->
-      <div class="row row1">
-        
-      </div>
+      
       <hr>
       <!-- Example row of columns -->
       <div class="row">
@@ -169,14 +167,24 @@
   		}, "jsonp");
   		
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
+				var rowNumber = 0;
+				var rowChildren = 0;
 				$.each(data.items, function(index, post) {
-					$(".row1").append(
-						"<div class=\"span5\">" +
-              "<h2>Heading</h2>" +
-              "<p>" + post.object.content + "</p>" +
-              "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
-            "</div>"
-         );
+					if(rowChildren === 0) {
+						$(".content").append("<div class=\"row row" + rowNumber + "\"></div>");
+					}
+					if(rowChildren < 4) {
+						$(".row" + rowNumber).append(
+						  "<div class=\"span5\">" +
+                "<h2>Heading</h2>" +
+                "<p>" + post.object.content + "</p>" +
+                "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
+              "</div>"
+            );
+            rowChildren++;
+					} else {
+						rowNumber++;
+					}	
 				});
   		}, "jsonp");
   	});  
