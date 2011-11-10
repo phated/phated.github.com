@@ -159,8 +159,10 @@
         		default:
         			break;
         	}
-          html    = template(item);
-          $(".row1").append(html);
+        	if(template) {
+        		html    = template(item);
+          	$(".row1").append(html);
+        	}
         });
   		}, "jsonp");
   	});  
