@@ -145,7 +145,7 @@
         	if( JSONSelect.match(".verb", item)[0] === "share") {
         		var source   = $("#reshare-template").html();
             var template = Handlebars.compile(source);
-            var html    = template(item);
+            var html    =  new Handlebars.SafeString(template(item));
             $(".row1").append(html);
         	}	
         });
