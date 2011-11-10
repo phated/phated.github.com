@@ -146,8 +146,8 @@
         		Handlebars.registerHelper('object.actor.displayName', function() {
 						  return new Handlebars.SafeString(this);
 						});
-						Handlebars.registerHelper('object.content', function() {
-						  return new Handlebars.SafeString(this);
+						Handlebars.registerHelper('object', function() {
+						  return new Handlebars.SafeString(this.content);
 						});
 						Handlebars.registerHelper('annotation', function() {
 						  return new Handlebars.SafeString(this);
