@@ -143,8 +143,8 @@
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
         	if( JSONSelect.match(".verb", item)[0] === "share") {
-        		Handlebars.registerHelper('safeStringContent', function(content) {
-						  return new Handlebars.SafeString(content);
+        		Handlebars.registerHelper('safeString', function(value) {
+						  return new Handlebars.SafeString(value);
 						});
         		var source   = $("#reshare-template").html();
             var template = Handlebars.compile(source);
@@ -176,9 +176,9 @@
   <!-- Templates! Brought to us by Handlebars.js - http://www.handlebarsjs.com/ -->
   <script id="reshare-template" type="text/x-handlebars-template">
     <div class="span5">
-      <h2>Reshared From {{object.actor.displayName}}</h2>
-      <h4>{{annotation}}</h4>
-      <p>{{safeStringContent object.content}}</p>
+      <h2>Reshared From {{safeString object.actor.displayName}}</h2>
+      <h4>{{safeString annotation}}</h4>
+      <p>{{safeString object.content}}</p>
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
   </script>
