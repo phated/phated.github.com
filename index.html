@@ -170,9 +170,18 @@
 					if(rowChildren === 0) {
 						$(".content").append("<div class=\"row row" + rowNumber + "\"></div>");
 					}
-					if(rowChildren < 4) {
+					if(rowChildren < 2) {
 						$(".row" + rowNumber).append(
 						  "<div class=\"span5\">" +
+                "<h2>Heading</h2>" +
+                "<p>" + post.object.content + "</p>" +
+                "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
+              "</div>"
+            );
+            rowChildren++;
+					} else if(rowChildren === 3) {
+						$(".row" + rowNumber).append(
+						  "<div class=\"span6\">" +
                 "<h2>Heading</h2>" +
                 "<p>" + post.object.content + "</p>" +
                 "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>" +
