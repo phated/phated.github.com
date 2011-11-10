@@ -146,6 +146,12 @@
         		Handlebars.registerHelper('object.actor.displayName', function() {
 						  return new Handlebars.SafeString(this);
 						});
+						Handlebars.registerHelper('object.content', function() {
+						  return new Handlebars.SafeString(this);
+						});
+						Handlebars.registerHelper('annotation', function() {
+						  return new Handlebars.SafeString(this);
+						});
         		var source   = $("#reshare-template").html();
             var template = Handlebars.compile(source);
             var html    = template(item);
