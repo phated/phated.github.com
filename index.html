@@ -143,13 +143,7 @@
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
         	if( JSONSelect.match(".verb", item)[0] === "share") {
-        		Handlebars.registerHelper('object.actor.displayName', function() {
-						  return new Handlebars.SafeString(this);
-						});
-						Handlebars.registerHelper('object', function() {
-						  return new Handlebars.SafeString(this.content);
-						});
-						Handlebars.registerHelper('annotation', function() {
+        		Handlebars.registerHelper('safeStringContent', function() {
 						  return new Handlebars.SafeString(this);
 						});
         		var source   = $("#reshare-template").html();
@@ -184,7 +178,7 @@
     <div class="span5">
       <h2>Reshared From {{object.actor.displayName}}</h2>
       <h4>{{annotation}}</h4>
-      <p>{{object.content}}</p>
+      <p>{{safeStringContent object.content}}</p>
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
   </script>
