@@ -119,6 +119,10 @@
   
   <script>
   	$(document).ready(function(){
+  		Handlebars.registerHelper('safeString', function(value) {
+			  return new Handlebars.SafeString(value);
+			});
+  		
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
   			$(".displayName").html(data.displayName);
   			$(".tagline").html(data.tagline);
@@ -142,15 +146,21 @@
   		
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
-        	if( JSONSelect.match(".verb", item)[0] === "share") {
-        		Handlebars.registerHelper('safeString', function(value) {
-						  return new Handlebars.SafeString(value);
-						});
-        		var source   = $("#reshare-template").html();
-            var template = Handlebars.compile(source);
-            var html    = template(item);
-            $(".row1").append(html);
-        	}	
+        	var source, template, html;
+        	switch(JSONSelect.match(".verb", item)[0]) {
+        		case "share":
+        			source   = $("#reshare-template").html();
+            	template = Handlebars.compile(source);
+        		  break;
+        		case "post":
+        		  break;
+        		case "checkin":
+        		  break;
+        		default:
+        			break;
+        	}
+          html    = template(item);
+          $(".row1").append(html);
         });
   		}, "jsonp");
   	});  
