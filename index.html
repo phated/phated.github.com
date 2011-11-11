@@ -192,7 +192,9 @@
       <p class="authored-by">Reshared From <a href="{{object.actor.url}}">{{safeString object.actor.displayName}}</a></p>
       <p>{{safeString object.content}}</p>
       {{each attachment}}
-      <p>{{displayName}}</p>
+        {{#if displayName}}
+  				<p>{{displayName}}</p>
+  			{{/if}}
       {{/each}}
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
