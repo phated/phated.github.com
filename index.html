@@ -192,15 +192,17 @@
       <p class="shared-content">
       	<div class="authored-by">Reshared From <a href="{{object.actor.url}}">{{safeString object.actor.displayName}}</a></div>
       	<div class="original-content">{{safeString object.content}}</div>
+      	<div class="attachment-content">
 	      {{#each object.attachments}}
-	  				<div class="attachment-content">
-	  					{{#if this.fullImage}}
-	  					<img src="{{this.fullImage.url}}">
-	  					{{/if}}
-	  					<a href="{{this.url}}">{{this.displayName}}</a>
-	  					{{this.content}}
-	  				</div>
+	  			{{#if this.fullImage}}
+	  				<img src="{{this.fullImage.url}}">
+	  			{{/if}}
+	  			{{if this.displayName}}
+	  				<a href="{{this.url}}">{{this.displayName}}</a>
+	  			{{/if}}
+	  			{{this.content}}
 	      {{/each}}
+	      </div>
       </p>
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
