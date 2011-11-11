@@ -189,8 +189,11 @@
   <script id="reshare-template" type="text/x-handlebars-template">
     <div>
       <h4>{{safeString annotation}}</h4>
-      <p class="authored-by">Reshared From {{safeString object.actor.displayName}}</p>
+      <p class="authored-by">Reshared From <a href="{{object.actor.url}}">{{safeString object.actor.displayName}}</a></p>
       <p>{{safeString object.content}}</p>
+      {{each attachment}}
+      <p>{{displayName}}</p>
+      {{/each}}
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
   </script>
