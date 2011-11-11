@@ -55,7 +55,7 @@
         <p class="tagline">Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         <p><a class="btn primary large">Learn more &raquo;</a></p>
       </div>
-      <div class="row row0"></div>
+      <div class="row row1"></div>
       <!-- Example row of columns -->
       <!--<div class="row">
         <div class="span6">
@@ -145,10 +145,8 @@
   		}, "jsonp");
   		
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-        var childCount = 0,
-            rowNumber  = 0,
-            source, template, html;
         JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
+        	var source, template, html;
         	switch(JSONSelect.match(".verb", item)[0]) {
         		case "share":
         			source   = $("#reshare-template").html();
@@ -163,14 +161,7 @@
         	}
         	if(template) {
         		html    = template(item);
-        		if(childCount < 2) {
-          	  $(".row" + rowNumber).append(html);
-          	  childCount++;
-           	} else {
-           		rowNumber++
-           		childCount = 0;
-           		$(".content").append("<div id=\"row row" + rowNumber + "\"></div>");
-           	}
+          	$(".row1").append(html);
         	}
         });
   		}, "jsonp");
@@ -196,7 +187,7 @@
 
   <!-- Templates! Brought to us by Handlebars.js - http://www.handlebarsjs.com/ -->
   <script id="reshare-template" type="text/x-handlebars-template">
-    <div class="span8">
+    <div class="span5">
       <h4>{{safeString annotation}}</h4>
       <div class="shared-content">
       	<div class="authored-by">Reshared From <a href="{{object.actor.url}}">{{safeString object.actor.displayName}}</a></div>
