@@ -197,10 +197,12 @@
 	  			{{#if this.fullImage}}
 	  				<img src="{{this.fullImage.url}}">
 	  			{{/if}}
-	  			{{if this.displayName}}
+	  			{{#if this.displayName}}
 	  				<a href="{{this.url}}">{{this.displayName}}</a>
 	  			{{/if}}
-	  			{{this.content}}
+	  			{{#if this.content}}
+	  				<span>{{this.content}}</span>
+	  			{{/if}}
 	      {{/each}}
 	      </div>
       </p>
