@@ -153,6 +153,8 @@
             	template = Handlebars.compile(source);
         		  break;
         		case "post":
+        		  source   = $("#post-template").html();
+        		  template = Handlebars.compile(source);
         		  break;
         		case "checkin":
         		  break;
@@ -205,6 +207,15 @@
 	  			{{/if}}
 	      {{/each}}
 	      </div>
+      </div>
+      <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
+    </div>
+  </script>
+  
+  <script id="post-template" type="text/x-handlebars-template">
+    <div class="span5">
+      <div class="post-content">
+      	<div class="post-content">{{safeString object.content}}</div>
       </div>
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
