@@ -194,7 +194,9 @@
       	<div class="original-content">{{safeString object.content}}</div>
 	      {{#each object.attachments}}
 	  				<div class="attachment-content">
+	  					{{#if this.fullImage}}
 	  					<img src="{{this.fullImage.url}}">
+	  					{{/if}}
 	  					<a href="{{this.url}}">{{this.displayName}}</a>
 	  					{{this.content}}
 	  				</div>
