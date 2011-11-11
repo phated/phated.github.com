@@ -55,9 +55,11 @@
         <p class="tagline">Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         <p><a class="btn primary large">Learn more &raquo;</a></p>
       </div>
-      <div class="row row1 span8"></div>
-      <div class="row row2 span4"></div>
-      <div class="row row3 span4"></div>
+      <div class="row">
+      	<div class="column1 span8"></div>
+      	<div class="column2 span4"></div>
+      	<div class="column3 span4"></div>
+      </div>
       <!-- Example row of columns -->
       <!--<div class="row">
         <div class="span6">
@@ -163,7 +165,7 @@
         	}
         	if(template) {
         		html    = template(item);
-          	$(".row1").append(html);
+          	$(".column1").append(html);
         	}
         });
   		}, "jsonp");
