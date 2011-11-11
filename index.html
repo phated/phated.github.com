@@ -191,7 +191,7 @@
       <h4>{{safeString annotation}}</h4>
       <p class="authored-by">Reshared From <a href="{{object.actor.url}}">{{safeString object.actor.displayName}}</a></p>
       <p>{{safeString object.content}}</p>
-      {{each attachment}}
+      {{#each attachment}}
         {{#if displayName}}
   				<p>{{displayName}}</p>
   			{{/if}}
