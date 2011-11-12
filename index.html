@@ -119,6 +119,8 @@
   <script src="js/libs/less-1.1.3.min.js"></script>
   <script src="js/libs/jsonselect.min.js"></script>
   <script src="js/libs/handlebars.1.0.0.beta.3.js"></script>
+  <script src="js/libs/bootstrap-twipsy.js"></script>
+  <script src="js/libs/bootstrap-popover.js"></script>
   <!-- end scripts -->
   
   <script>
@@ -204,7 +206,9 @@
 	  				<!--<img src="{{this.fullImage.url}}">-->
 	  			{{/if}}
 	  			{{#if this.displayName}}
-	  				<a href="{{this.url}}">{{this.displayName}}</a>
+	  				<a href="{{this.url}}" rel="popover" data-content="And here's some amazing content. It's very engaging. right?">
+	  					{{this.displayName}}
+	  				</a>
 	  			{{/if}}
 	  			{{#if this.content}}
 	  				<!--<span>{{this.content}}</span>-->
