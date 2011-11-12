@@ -207,16 +207,10 @@
       	<div class="original-content">{{safeString object.content}}</div>
       	<div class="attachment-content">
 	      {{#each object.attachments}}
-	  			{{#if this.fullImage}}
-	  				<!--<img src="{{this.fullImage.url}}">-->
-	  			{{/if}}
 	  			{{#if this.displayName}}
-	  				<a href="{{this.url}}" rel="popover" data-content="{{this.content}}" title="Article Content:">
+	  				<a href="{{this.url}}" rel="popover" data-content="{{safeString this.content}}" title="Article Content:">
 	  					{{this.displayName}}
 	  				</a>
-	  			{{/if}}
-	  			{{#if this.content}}
-	  				<!--<span>{{this.content}}</span>-->
 	  			{{/if}}
 	      {{/each}}
 	      </div>
