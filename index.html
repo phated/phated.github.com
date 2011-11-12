@@ -110,7 +110,7 @@
   			var source   = $("#sidebar-template").html();
         var template = Handlebars.compile(source);
         var html     = template(data);
-        $("header.hero-unit").append(html);
+        $(".sidebar").append(html);
   			
   			/*$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
   			$(".aboutMe").html(data.aboutMe);
