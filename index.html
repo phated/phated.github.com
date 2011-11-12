@@ -98,7 +98,14 @@
 			});
   		
   		Handlebars.registerHelper('work', function(value) {
-			  return new Handlebars.SafeString(value);
+			  if(value.type === "work") {
+  				var source   = $("#work-template").html();
+        	var template = Handlebars.compile(source);
+        	var html     = template(value);
+        	return new Handlebars.SafeString(html);
+  			} else {
+  				return false;
+  			}
 			});
   		
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
@@ -238,6 +245,11 @@
   <script id="school-template" type="text/x-handlebars-template">
   	<li>Degree: {{title}}</li>
   	<li>School: {{name}}</li>
+  </script>
+  
+  <script id="work-template" type="text/x-handlebars-template">
+  	<li>Position: {{title}}</li>
+  	<li>Company: {{name}}</li>
   </script>
 </body>
 </html>
