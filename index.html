@@ -50,9 +50,7 @@
   <div class="container-fluid">
     <div class="content">
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <header class="hero-unit">
-        
-      </header>
+      <header class="hero-unit"></header>
       <div class="row row1">
       	<div class="span8 column1"></div>
       	<div class="span4 column2"></div>
@@ -62,21 +60,7 @@
         <p>&copy; Company 2011</p>
       </footer>
     </div>
-    <div class="sidebar">
-      <div class="well">
-        <h5>About Me</h5>
-        <ul>
-          <li class="profileImage"></li>
-          <li class="aboutMe"></li>
-        </ul>
-        <h5>School</h5>
-        <ul class="school">
-        </ul>
-        <h5>Work</h5>
-        <ul class="work">
-        </ul>
-      </div>
-    </div>
+    <div class="sidebar"></div>
   </div>
 
   <!-- JavaScript at the bottom for fast page loading -->
@@ -102,10 +86,25 @@
 			  return new Handlebars.SafeString(value);
 			});
   		
+  		Handlebars.registerHelper('school', function(value) {
+  			if(value.type === "school") {
+  				var source   = $("#school-template").html();
+        	var template = Handlebars.compile(source);
+        	var html     = template(value);
+        	return new Handlebars.SafeString(value);
+  			} else {
+  				return false;
+  			}
+			});
+  		
+  		Handlebars.registerHelper('work', function(value) {
+			  return new Handlebars.SafeString(value);
+			});
+  		
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
   			var source   = $("#header-template").html();
         var template = Handlebars.compile(source);
-        var html    = template(data);
+        var html     = template(data);
         $("header.hero-unit").append(html);
   			
   			$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
@@ -179,7 +178,7 @@
       	<div class="attachment-content">
 	      {{#each object.attachments}}
 	  			{{#if this.displayName}}
-	  				<a href="{{this.url}}" rel="popover" data-content="{{safeString this.content}}" title="Article Content:">
+	  				<a href="{{this.url}}" rel="popover" data-content="{{safeString this.content}}" title="Article Snippet:">
 	  					{{this.displayName}}
 	  				</a>
 	  			{{/if}}
@@ -203,6 +202,37 @@
   	<h1 class="displayName">{{displayName}}</h1>
     <p class="tagline">{{tagline}}</p>
     <p><a class="btn primary large" href={{url}}>Find Me on Google+ &raquo;</a></p>
+  </script>
+  
+  <script id="sidebar-template" type="text/x-handlebars-template">
+  	<div class="well">
+      <h5>About Me</h5>
+      <ul>
+        <li class="profileImage">
+        	<img src="{{image.url}}" />
+        </li>
+        <li class="aboutMe">
+        	{{aboutMe}}
+        </li>
+      </ul>
+      <h5>School</h5>
+      <ul class="school">
+      	{{#each organizations}}
+      		{{school this}}
+      	{{/each}}
+      </ul>
+      <h5>Work</h5>
+      <ul class="work">
+      	{{#each organizations}}
+      		{{work this}}
+      	{{/each}}      	
+      </ul>
+    </div>
+  </script>
+  
+  <script id="school-template" type="text/x-handlebars-template">
+  	<li>Degree: {{title}}</li>
+  	<li>School: {{name}}</li>
   </script>
 </body>
 </html>
