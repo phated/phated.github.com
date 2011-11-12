@@ -91,7 +91,7 @@
   				var source   = $("#school-template").html();
         	var template = Handlebars.compile(source);
         	var html     = template(value);
-        	return new Handlebars.SafeString(value);
+        	return new Handlebars.SafeString(html);
   			} else {
   				return false;
   			}
