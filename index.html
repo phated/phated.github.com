@@ -118,18 +118,6 @@
         var template = Handlebars.compile(source);
         var html     = template(data);
         $(".sidebar").append(html);
-  			
-  			/*$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
-  			$(".aboutMe").html(data.aboutMe);
-  			$.each(data.organizations, function(index, organization) {
-  				if(organization.type === "school") {
-  					$(".school").append("<li>Degree: " + organization.title + "</li>");
-  					$(".school").append("<li>School: " + organization.name + "</li>");
-  				} else if(organization.type === "work") {
-  					$(".work").append("<li>Position: " + organization.title + "</li>");
-  					$(".work").append("<li>Company: " + organization.name + "</li>");
-  				}
-  			});*/
   		}, "jsonp");
   		
       $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
