@@ -50,19 +50,17 @@
   <div class="container-fluid">
     <div class="content">
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1 class="displayName">Hello, world!</h1>
-        <p class="tagline">Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        <p><a class="btn primary large">Learn more &raquo;</a></p>
-      </div>
+      <header class="hero-unit">
+        
+      </header>
       <div class="row row1">
       	<div class="span8 column1"></div>
       	<div class="span4 column2"></div>
       	<div class="span4 column3"></div>
       </div>
-      <!--<footer>
+      <footer>
         <p>&copy; Company 2011</p>
-      </footer>-->
+      </footer>
     </div>
     <div class="sidebar">
       <div class="well">
@@ -105,13 +103,11 @@
 			});
   		
   		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-  			$(".displayName").html(data.displayName);
-  			$(".tagline").html(data.tagline);
-  			/*$.each(data.urls, function(index, url) {
-  				if(url.type === undefined) {
-  					$(".profile-urls").append("<li><a href=\"" + url.value + "\">" + url.value +"</a></li>");
-  				}
-  			});*/
+  			var source   = $("#header-template").html();
+        var template = Handlebars.compile(source);
+        var html    = template(data);
+        $("header.hero-unit").append(html);
+  			
   			$(".profileImage").html("<a href=\"" + data.image.url + "\"><img src=\"" + data.image.url + "?sz=175\" /></a>");
   			$(".aboutMe").html(data.aboutMe);
   			$.each(data.organizations, function(index, organization) {
@@ -201,6 +197,12 @@
       </div>
       <p><a class="btn" href="{{url}}">View Post &raquo;</a></p>
     </div>
+  </script>
+  
+  <script id="header-template" type="text/x-handlebars-template">
+  	<h1 class="displayName">{{displayName}}</h1>
+    <p class="tagline">{{tagline}}</p>
+    <p><a class="btn primary large" href={{url}}>Find Me on Google+ &raquo;</a></p>
   </script>
 </body>
 </html>
