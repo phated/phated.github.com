@@ -1002,7 +1002,7 @@ public class SwingExample {
   <header><span class="theme2">Google+</span> In the Meantime: Google+ Static Icon</header>
   <section>
 <pre>
-&lt;!-- Place this tag in the <head> of your document-->
+&lt;!-- Place this tag in the &lt;head> of your document-->
 &lt;link href="{plusPageUrl}" rel="publisher" />
 
 &lt;!-- Place this tag where you want the badge to render-->
@@ -1019,6 +1019,44 @@ public class SwingExample {
      on Google+ &lt;/div>
   &lt;/div>
 &lt;/a>
+</pre>
+  </section>
+</div>
+
+<!--
+ *
+ * Putting it all together
+ *
+-->
+<div class="slide centercontents">
+  <header><span class="theme2">Google+</span> Putting It All Together (When Fully Implemented)</header>
+  <section>
+<pre>
+&lt;head>
+  &lt;link href="{plusPageUrl}" rel="publisher" />
+  &lt;!-- Optional (if not specified, use href on +1 element -->
+  &lt;link rel="canonical" href="{pageUrl}" />
+&lt;/head>
+&lt;body itemscope itemtype="http://schema.org/Product">
+  &lt;div class="g-plus"
+          data-href="{plusPageUrl}"
+          data-size="badge">&lt;/div>
+  &lt;div class="g-plusone" data-size="tall">&lt;/div>
+  &lt;h1 itemprop="name">Shiny Trinket&lt;/h1>
+  &lt;img itemprop="image" src="image-url" />
+  &lt;p itemprop="description">Shiny trinkets are shiny.&lt;/p>
+  &lt;script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); 
+    po.type = 'text/javascript'; 
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    
+    var s = document.getElementsByTagName('script')[0]; 
+    s.parentNode.insertBefore(po, s);
+  })();
+  &lt;/script>
+&lt;/body>
 </pre>
   </section>
 </div>
