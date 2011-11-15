@@ -4,19 +4,19 @@
 var hangoutParticipant = {
   participantId: null,
   tabId: null,
-  newTab: function(participant) {
-    return tabs.addTab(participant.person.displayName);
+  newTab: function(participant, tabSet) {
+    return tabSet.addTab(participant.person.displayName);
   }
 };
  
 function init() {
-	var tabs = new gadgets.TabSet(); 
+	var tabSet = new gadgets.TabSet(); 
 	var participants = gapi.hangout.getParticipants();
 	
   var par1 = Object.create(hangoutParticipant);
   var tabIds;
   $.each(participants, function(index, participant) {
-    tabIds.push(par1.newTab(participant));
+    tabIds.push(par1.newTab(participant, tabSet));
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
