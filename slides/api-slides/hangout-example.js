@@ -29,7 +29,7 @@ function init() {
       participants[index].getActivities();
     }
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
-    $('#' + tabsIds[index]).append(participants[index].activities);
+    $('#' + tabIds[index]).append(participants[index].activities);
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
