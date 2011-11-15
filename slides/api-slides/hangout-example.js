@@ -9,7 +9,7 @@ var Participant = {
     return tabSet.addTab(participant.person.displayName);
   },
   getActivities: function() {
-    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
+    $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
       return data;
     }, "jsonp");
   }
@@ -32,9 +32,9 @@ function init() {
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
-	var gplusIds = getGPlusIds(participants);
+	//var gplusIds = getGPlusIds(participants);
 	
-	getGPlusActivities(gplusIds, tabIds);
+	//getGPlusActivities(gplusIds, tabIds);
 }
 
 /*function addTabForEachPerson(tabs, participants) {
