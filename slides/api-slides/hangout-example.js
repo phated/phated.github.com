@@ -1,11 +1,24 @@
 /**
  * @author phated
  */
+var hangoutParticipant = {
+  participantId: null,
+  tabId: null,
+  newTab: function(participant) {
+    return tabs.addTab(participant.person.displayName);
+  }
+};
+ 
 function init() {
 	var tabs = new gadgets.TabSet(); 
 	var participants = gapi.hangout.getParticipants();
 	
-	var tabIds = addTabForEachPerson(tabs, participants);
+  var par1 = Object.create(hangoutParticipant);
+  var tabIds;
+  $.each(participants, function(index, participant) {
+    tabIds.push(newTab(par1.participant));
+  });
+	//var tabIds = addTabForEachPerson(tabs, participants);
 		
 	var gplusIds = getGPlusIds(participants);
 	
