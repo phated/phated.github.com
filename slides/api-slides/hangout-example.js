@@ -9,10 +9,12 @@ var Participant = {
     return tabSet.addTab(participant.person.displayName);
   },
   getActivities: function() {
-    var activities = $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
-      return data;
-      //$('#' + this.tabId).append(activities);
-    }, "jsonp");
+    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', this.addActivities(this), "jsonp");
+  },
+  addActivities: function(participant) {
+    return function(data, textStatus) {
+      participant.activities = data;
+    };
   }
 };
  
