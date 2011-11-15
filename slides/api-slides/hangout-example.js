@@ -14,6 +14,7 @@ var Participant = {
   addActivities: function(participant) {
     return function(data, textStatus) {
       participant.activities = data;
+      console.log(participant.activities);
     };
   }
 };
