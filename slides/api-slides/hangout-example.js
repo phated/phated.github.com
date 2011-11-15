@@ -2,7 +2,7 @@
  * @author phated
  */
 var Participant = {
-  participantId: null,
+  gplusId: null,
   tabId: null,
   newTab: function(participant, tabSet) {
     return tabSet.addTab(participant.person.displayName);
@@ -13,10 +13,12 @@ function init() {
 	var tabSet = new gadgets.TabSet(); 
 	var hangoutParticipants = gapi.hangout.getParticipants();
 	
-  var participants = [];
-  var tabIds = [];
+  var participants = [],
+      tabIds = [];
+      
   $.each(hangoutParticipants, function(index, hangoutParticipant) {
     participants[index] = Object.create(Participant);
+    participants[index].gplusId = hangoutParticipant.person.id;
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
@@ -24,17 +26,17 @@ function init() {
 	var gplusIds = getGPlusIds(participants);
 	
 	getGPlusActivities(gplusIds, tabIds);
-};
+}
 
-function addTabForEachPerson(tabs, participants) {
+/*function addTabForEachPerson(tabs, participants) {
 	var tabIds = [];
 	$.each(participants, function(index, participant) {
-		var tabId = tabs.addTab(participant.person.displayName)
+		var tabId = tabs.addTab(participant.person.displayName);
 		tabIds.push(tabId);
 		tabs.setSelectedTab(index);
 	});
 	return tabIds;
-}
+}*/
 
 function getGPlusIds(participants) {
 	var gplusIds = [];
