@@ -26,11 +26,11 @@ function init() {
   $.each(hangoutParticipants, function(index, hangoutParticipant) {
     participants[index] = Object.create(Participant);
     participants[index].gplusId = hangoutParticipant.person.id;
+    tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
+    participants[index].tabId = tabIds[index];
     if(participants[index].gplusId) {
       participants[index].getActivities();
     }
-    tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
-    participants[index].tabId = tabIds[index];
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
