@@ -10,8 +10,8 @@ var Participant = {
   },
   getActivities: function() {
     $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
-      this.activities = data;
-       $('#' + Participant.tabIds).append(Participant.activities);
+      activities = data;
+      $('#' + tabIds).append(activities);
     }, "jsonp");
   }
 };
