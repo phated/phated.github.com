@@ -57,7 +57,7 @@
       	<div class="span4 column3"></div>
       </div>
       <footer>
-        <p>&copy; Company 2011</p>
+        <p>&copy; Yarr Software 2011</p>
       </footer>
     </div>
     <div class="sidebar"></div>
@@ -74,82 +74,11 @@
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
   <script src="js/libs/less-1.1.3.min.js"></script>
-  <script src="js/libs/jsonselect.min.js"></script>
   <script src="js/libs/handlebars.1.0.0.beta.3.js"></script>
   <script src="js/libs/bootstrap-twipsy.js"></script>
   <script src="js/libs/bootstrap-popover.js"></script>
+  <script src="gplus-loader.js"></script>
   <!-- end scripts -->
-  
-  <script>
-  	$(document).ready(function(){
-  		Handlebars.registerHelper('safeString', function(value) {
-			  return new Handlebars.SafeString(value);
-			});
-  		
-  		Handlebars.registerHelper('school', function(value) {
-  			if(value.type === "school") {
-  				var source   = $("#school-template").html();
-        	var template = Handlebars.compile(source);
-        	var html     = template(value);
-        	return new Handlebars.SafeString(html);
-  			} else {
-  				return false;
-  			}
-			});
-  		
-  		Handlebars.registerHelper('work', function(value) {
-			  if(value.type === "work") {
-  				var source   = $("#work-template").html();
-        	var template = Handlebars.compile(source);
-        	var html     = template(value);
-        	return new Handlebars.SafeString(html);
-  			} else {
-  				return false;
-  			}
-			});
-  		
-  		$.get('https://www.googleapis.com/plus/v1/people/102147307918874735077?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-  			var source   = $("#header-template").html();
-        var template = Handlebars.compile(source);
-        var html     = template(data);
-        $("header.hero-unit").append(html);
-
-  			var source   = $("#sidebar-template").html();
-        var template = Handlebars.compile(source);
-        var html     = template(data);
-        $(".sidebar").append(html);
-  		}, "jsonp");
-  		
-      $.get('https://www.googleapis.com/plus/v1/people/102147307918874735077/activities/public?alt=json&fields=items(address%2Cannotation%2Cobject(actor(displayName%2Cimage%2Curl)%2Cattachments%2Ccontent%2CobjectType%2CoriginalContent%2Cplusoners%2Creplies%2Cresharers%2Curl)%2CplaceId%2CplaceName%2Cplaceholder%2Cpublished%2Ctitle%2Cupdated%2Curl%2Cverb)%2CnextLink%2CnextPageToken&pp=1&key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&alt=json', function(data){
-        JSONSelect.forEach(".items > :nth-child(1n+1)", data, function(item) {
-        	var source, template, html;
-        	switch(JSONSelect.match(".verb", item)[0]) {
-        		case "share":
-        			source   = $("#reshare-template").html();
-            	template = Handlebars.compile(source);
-        		  break;
-        		case "post":
-        		  source   = $("#post-template").html();
-        		  template = Handlebars.compile(source);
-        		  break;
-        		case "checkin":
-        		  break;
-        		default:
-        			break;
-        	}
-        	if(template) {
-        		html    = template(item);
-          	$(".column1").append(html);
-        	}
-        });
-  		}, "jsonp");
-  		
-  		$("a[rel=popover]").popover({
-        offset: 10,
-        live: true
-      })
-  	});  
-  </script>
 
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
@@ -169,6 +98,12 @@
   <![endif]-->
 
   <!-- Templates! Brought to us by Handlebars.js - http://www.handlebarsjs.com/ -->
+  <script id="activity-template" type="text/x-handlebars-template">
+    {{#each items}}
+      {{activity this}}
+    {{/each}}
+  </script>
+  
   <script id="reshare-template" type="text/x-handlebars-template">
     <div class="shared-container">
       <h4>{{safeString annotation}}</h4>
@@ -209,7 +144,7 @@
       <h5>About Me</h5>
       <ul>
         <li class="profileImage">
-        	<img src="{{image.url}}?sz=175" />
+        	<img src="{{stripQuerystring image.url}}?sz=175" />
         </li>
         <li class="aboutMe">
         	{{aboutMe}}
