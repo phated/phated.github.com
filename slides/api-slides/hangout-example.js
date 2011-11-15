@@ -17,7 +17,7 @@ function init() {
   var tabIds = [];
   $.each(hangoutParticipants, function(index, hangoutParticipant) {
     participants[index] = Object.create(Participant);
-    tabIds[index] = (par1.newTab(hangoutParticipant, tabSet));
+    tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
