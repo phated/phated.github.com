@@ -10,7 +10,7 @@ var Participant = {
   },
   getActivities: function() {
     $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
-      this.activities = data;
+      return data;
     }, "jsonp");
   }
 };
@@ -26,7 +26,7 @@ function init() {
     participants[index] = Object.create(Participant);
     participants[index].gplusId = hangoutParticipant.person.id;
     if(participants[index].gplusId) {
-      participants[index].getActivities();
+      participants[index].activities = participants[index].getActivities();
     }
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
   });
