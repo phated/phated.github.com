@@ -26,7 +26,7 @@ function init() {
     participants[index] = Object.create(Participant);
     participants[index].gplusId = hangoutParticipant.person.id;
     if(participants[index].gplusId) {
-      participants[index].activities = participants[index].getActivities();
+      participants[index].getActivities();
     }
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
     $('#' + tabsIds[index]).append(participants[index].activities);
