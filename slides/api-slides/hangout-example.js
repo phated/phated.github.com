@@ -9,8 +9,8 @@ var Participant = {
     return tabSet.addTab(participant.person.displayName);
   },
   getActivities: function() {
-    $.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
-      return data;
+    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
+      this.activities = data;
     }, "jsonp");
   }
 };
@@ -29,6 +29,7 @@ function init() {
       participants[index].activities = participants[index].getActivities();
     }
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
+    $('#' + tabsIds[index]).append(participants[index].activities);
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
