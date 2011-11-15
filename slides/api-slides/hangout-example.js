@@ -1,7 +1,7 @@
 /**
  * @author phated
  */
-var hangoutParticipant = {
+var Participant = {
   participantId: null,
   tabId: null,
   newTab: function(participant, tabSet) {
@@ -11,12 +11,13 @@ var hangoutParticipant = {
  
 function init() {
 	var tabSet = new gadgets.TabSet(); 
-	var participants = gapi.hangout.getParticipants();
+	var hangoutParticipants = gapi.hangout.getParticipants();
 	
-  var par1 = Object.create(hangoutParticipant);
-  var tabIds;
-  $.each(participants, function(index, participant) {
-    tabIds.push(par1.newTab(participant, tabSet));
+  var participants = [];
+  var tabIds = [];
+  $.each(hangoutParticipants, function(index, hangoutParticipant) {
+    participants[index] = Object.create(Participant);
+    tabIds[index] = (par1.newTab(hangoutParticipant, tabSet));
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
 		
