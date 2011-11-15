@@ -4,8 +4,14 @@
 var Participant = {
   gplusId: null,
   tabId: null,
+  activities: null,
   newTab: function(participant, tabSet) {
     return tabSet.addTab(participant.person.displayName);
+  },
+  getActivities: function() {
+    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
+      this.activities = data;
+    }, "jsonp");
   }
 };
  
@@ -19,6 +25,9 @@ function init() {
   $.each(hangoutParticipants, function(index, hangoutParticipant) {
     participants[index] = Object.create(Participant);
     participants[index].gplusId = hangoutParticipant.person.id;
+    if(participants[index].gplusId) {
+      participants[index].getActivities();
+    }
     tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
   });
 	//var tabIds = addTabForEachPerson(tabs, participants);
@@ -38,17 +47,17 @@ function init() {
 	return tabIds;
 }*/
 
-function getGPlusIds(participants) {
+/*function getGPlusIds(participants) {
 	var gplusIds = [];
 	$.each(participants, function(index, participant) {
 		gplusIds.push(participant.person.id);
 	});
 	return gplusIds;
-}
+}*/
 
 function getGPlusActivities(gplusIds, tabIds) {
 	$.each(gplusIds, function(index, gplusId) {
-		$.get('https://www.googleapis.com/plus/v1/people/' + gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){findHangoutActivity(data, tabIds)}, "jsonp");
+		
 	});
 }
 
