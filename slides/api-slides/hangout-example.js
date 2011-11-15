@@ -11,7 +11,7 @@ var Participant = {
   getActivities: function() {
     $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', function(data){
       activities = data;
-      $('#' + tabId).append(activities);
+      $('#' + this.tabId).append(activities);
     }, "jsonp");
   }
 };
