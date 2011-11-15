@@ -4,17 +4,21 @@
 var Participant = {
   gplusId: null,
   tabId: null,
-  activities: null,
+  hangoutActivityIds: [],
   newTab: function(participant, tabSet) {
     return tabSet.addTab(participant.person.displayName);
   },
   getActivities: function() {
-    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', this.addActivities(this), "jsonp");
+    $.get('https://www.googleapis.com/plus/v1/people/' + this.gplusId + '/activities/public?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&maxResults=5&pp=1&alt=json', this.findHangoutActivityIds(this), "jsonp");
   },
-  addActivities: function(participant) {
+  findHangoutActivityIds: function(participant) {
     return function(data, textStatus) {
-      participant.activities = data;
-      console.log(participant.activities);
+      $.each(data.items, function(index, item) {
+        if(item.provider.title === "Hangout") {
+			    participant.hangoutActivityIds.push(item.id);
+          console.log(participant.hangoutActivityIds);
+		    }
+	    });
     };
   }
 };
