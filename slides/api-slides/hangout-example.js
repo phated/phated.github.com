@@ -29,12 +29,12 @@ var Participant = {
   outputComments: function(participant) {
     return function(data, textStatus) {
       var source, template, html;
-      $.each(data.items, function(index, item) {
+      data.items.forEach(function(item, index) {
         source   = $("#comment-template").html();
         template = Handlebars.compile(source);
         html     = template(data);
-        $("#" + participant.tabId).append(html);
-      });
+        $("#" + this.tabId).append(html);
+      }, participant);
     }
   }
 };
