@@ -19,7 +19,7 @@ var Participant = {
     return function(data, textStatus) {
       $.each(data.items, function(index, item) {
         if(item.provider.title === "Hangout") {
-			    participant.hangoutActivityIds.push(item.id);
+          participant.hangoutActivityIds.push(item.id);
           participant.getComments();
 		    }
 	    });
@@ -39,7 +39,7 @@ var Participant = {
         html     = template(data);
         $("#" + this.tabId).append(html);
       }, participant);
-    }
+    };
   }
 };
  
