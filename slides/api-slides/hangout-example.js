@@ -16,6 +16,7 @@ var Participant = {
       $.each(data.items, function(index, item) {
         if(item.provider.title === "Hangout") {
 			    participant.hangoutActivityIds.push(item.id);
+          participant.getComments();
 		    }
 	    });
     };
