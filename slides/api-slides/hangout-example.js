@@ -36,7 +36,7 @@ var Participant = {
       data.items.forEach(function(item, index) {
         source   = $("#comment-template").html();
         template = Handlebars.compile(source);
-        html     = template(data);
+        html     = template(item);
         $("#" + this.tabId).append(html);
       }, participant);
     };
