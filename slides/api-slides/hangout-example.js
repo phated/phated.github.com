@@ -22,9 +22,9 @@ var Participant = {
     };
   },
   getComments: function() {
-    $.each(this.hangoutActivityIds, function(index, hangoutActivityId) {
+    this.hangoutActivityIds.forEach(function(index, hangoutActivityId) {
       $.get('https://www.googleapis.com/plus/v1/activities/' + hangoutActivityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', this.outputComments(this), "jsonp");
-	  });
+	  }, this);
   },
   outputComments: function(participant) {
     return function(data, textStatus) {
