@@ -16,10 +16,25 @@ var Participant = {
       $.each(data.items, function(index, item) {
         if(item.provider.title === "Hangout") {
 			    participant.hangoutActivityIds.push(item.id);
-          console.log(participant.hangoutActivityIds);
 		    }
 	    });
     };
+  },
+  getComments: function() {
+    $.each(this.hangoutActivityIds, function(index, hangoutActivityId) {
+      $.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', this.outputComments(this), "jsonp");
+	  });
+  },
+  outputComments: function(participant) {
+    return function(data, textStatus) {
+      var source, template, html;
+      $.each(data.items, function(index, item) {
+        source   = $("#comment-template").html();
+        template = Handlebars.compile(source);
+        html     = template(data);
+        $("#" + tabId).append(html);
+      }
+    }
   }
 };
  
@@ -64,13 +79,13 @@ function init() {
 	return gplusIds;
 }*/
 
-function getGPlusActivities(gplusIds, tabIds) {
+/*function getGPlusActivities(gplusIds, tabIds) {
 	$.each(gplusIds, function(index, gplusId) {
 		
 	});
-}
+}*/
 
-function findHangoutActivity(data, tabIds) {
+/*function findHangoutActivity(data, tabIds) {
 	var activityIds = [];
 	$.each(data.items, function(index, item) {
 		if(item.provider.title === "Hangout") {
@@ -78,13 +93,11 @@ function findHangoutActivity(data, tabIds) {
 			getHangoutActivityComments(activityIds, tabIds);
 		}
 	});
-}
+}*/
 
-function getHangoutActivityComments(activityIds, tabIds) {
-	$.each(activityIds, function(index, activityId) {
-		$.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', function(data){outputStuff(data, tabIds, index)}, "jsonp");
-	});
-}
+/*function getHangoutActivityComments(activityIds, tabIds) {
+
+}*/
 
 function outputStuff(data, tabIds, activityIndex) {
 	$.each(data.items, function(index, item) {
