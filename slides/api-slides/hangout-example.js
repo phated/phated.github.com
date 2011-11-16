@@ -1,6 +1,10 @@
 /**
  * @author phated
  */
+Handlebars.registerHelper('dateFormat', function(value) {
+  return new Handlebars.SafeString(value);
+});
+ 
 var Participant = {
   gplusId: null,
   tabId: null,
