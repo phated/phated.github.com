@@ -52,18 +52,12 @@ function init() {
       tabIds = [];
       
   hangoutParticipants.forEach(function(hangoutParticipant, index) {
-    newParticipant(hangoutParticipant, index);
+    participants[index] = Object.create(Participant);
+    participants[index].gplusId = hangoutParticipant.person.id;
+    tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
+    participants[index].tabId = tabIds[index];
+    if(participants[index].gplusId) {
+      participants[index].activities = participants[index].getActivities();
+    }   
   });
-  
-  
-}
-
-function newParticipant(hangoutParticipant, index) {
-  participants[index] = Object.create(Participant);
-  participants[index].gplusId = hangoutParticipant.person.id;
-  tabIds[index] = (participants[index].newTab(hangoutParticipant, tabSet));
-  participants[index].tabId = tabIds[index];
-  if(participants[index].gplusId) {
-    participants[index].activities = participants[index].getActivities();
-  }
 }
