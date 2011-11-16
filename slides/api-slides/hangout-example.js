@@ -2,7 +2,8 @@
  * @author phated
  */
 Handlebars.registerHelper('dateFormat', function(value) {
-  return new Handlebars.SafeString(value);
+  var formattedDate = new Date(value).toLocaleString();
+  return new Handlebars.SafeString(formattedDate);
 });
  
 var Participant = {
