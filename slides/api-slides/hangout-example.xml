@@ -20,11 +20,11 @@
 					});
 	    </script>
       <script id="comment-template" type="text/x-handlebars-template">
-        <img src="{{item.actor.image.url}}" width="100" height="100" style="float:left; margin:10px;" />
+        <img src="{{actor.image.url}}" width="100" height="100" style="float:left; margin:10px;" />
 		    <div style="float:left; margin:10px;">
-		      <a href="{{item.actor.url}}" target="_blank">{{item.actor.displayName}}</a> - {{item.object.content}}
-		      <div style="margin:15px 0;">Posted on: {{dateFormat item.published}}</div>
-		      <div style="margin:15px 0;">Edited on: {{dateFormat item.updated}}</div>
+		      <a href="{{actor.url}}" target="_blank">{{actor.displayName}}</a> - {{object.content}}
+		      <div style="margin:15px 0;">Posted on: {{dateFormat published}}</div>
+		      <div style="margin:15px 0;">Edited on: {{dateFormat updated}}</div>
 		    </div>
       </script>
 	    <link rel="stylesheet" href="http://phated.github.com/slides/api-slides/hangout-example.css" type="text/css">
