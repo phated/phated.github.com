@@ -22,7 +22,7 @@ var Participant = {
   },
   getComments: function() {
     $.each(this.hangoutActivityIds, function(index, hangoutActivityId) {
-      $.get('https://www.googleapis.com/plus/v1/activities/' + activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', this.outputComments(this), "jsonp");
+      $.get('https://www.googleapis.com/plus/v1/activities/' + this.activityId + '/comments?key=AIzaSyB14Ua7k5_wusxHTQEH3sqmglO7MHjHPCI&fields=items(actor%2Cobject%2Cpublished%2Cupdated)&alt=json', this.outputComments(this), "jsonp");
 	  });
   },
   outputComments: function(participant) {
